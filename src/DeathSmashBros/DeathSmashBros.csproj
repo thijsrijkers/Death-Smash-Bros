@@ -43,6 +43,21 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Engine\Characters\Character.cs" />
+    <Compile Include="Engine\Drawables\Button.cs" />
+    <Compile Include="Engine\Drawables\Drawable.cs" />
+    <Compile Include="Engine\Drawables\Image.cs" />
+    <Compile Include="Engine\Loader.cs" />
+    <Compile Include="Engine\Players\BotPlayer.cs" />
+    <Compile Include="Engine\Players\HumanPlayer.cs" />
+    <Compile Include="Engine\Players\Player.cs" />
+    <Compile Include="Engine\Screens\CharacterSelectScreen.cs" />
+    <Compile Include="Engine\Screens\EndScreen.cs" />
+    <Compile Include="Engine\Screens\FightScreen.cs" />
+    <Compile Include="Engine\Screens\HomeScreen.cs" />
+    <Compile Include="Engine\Screens\SceneSelectScreen.cs" />
+    <Compile Include="Engine\Screens\Screen.cs" />
+    <Compile Include="Engine\ScreenManager.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
