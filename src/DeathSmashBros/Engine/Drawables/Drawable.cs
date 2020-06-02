@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,31 @@ namespace DeathSmashBros.Engine.Drawables
 {
     public abstract class Drawable
     {
-        private Texture2D texture;
-        private int x;
-        private int y;
+        protected Texture2D mainTexture;
+        protected Texture2D shownTexture;
+        protected Vector2 position;
+        protected Vector2 scale;
 
         public delegate void OnClickDelegate(Drawable drawable);
         public event OnClickDelegate OnClick;
 
-        public Drawable(int x, int y, Texture2D texture)
+        public Drawable(Texture2D _texture, Vector2 _position, Vector2 _scale)
         {
-
+            mainTexture = _texture;
+            shownTexture = mainTexture;
+            position = _position;
+            scale = _scale;
         }
 
-        // TODO implement methods
+        public abstract void draw(SpriteBatch spriteBatch);
+
+        public abstract void update();
+
+        // Creates a rectangle to wrap the texture in
+        public Rectangle getRectangle()
+        {
+            Rectangle rectangle = new Rectangle((int)position.X, (int)position.Y, (int)scale.X, (int)scale.Y);
+            return rectangle;
+        }
     }
 }

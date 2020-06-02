@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine;
+using DeathSmashBros.Engine.Drawables;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +13,7 @@ namespace DeathSmashBros
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Button button;
 
         public MainGame()
         {
@@ -40,6 +43,8 @@ namespace DeathSmashBros
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            button = new Button(Content.Load<Texture2D>("button-red"), new Vector2(0, 0), new Vector2(200, 200), Content.Load<Texture2D>("button-red-hover"));
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -64,6 +69,8 @@ namespace DeathSmashBros
 
             // TODO: Add your update logic here
 
+            button.update();
+
             base.Update(gameTime);
         }
 
@@ -76,6 +83,11 @@ namespace DeathSmashBros
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            button.draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
