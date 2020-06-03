@@ -11,7 +11,6 @@ namespace DeathSmashBros.Engine.Drawables
 {
     public class Button : Drawable
     {
-
         private Texture2D hoverTexture;
         public Button(Texture2D _texture, Vector2 _position, Vector2 _scale, Texture2D _hoverTexture) : base(_texture, _position, _scale)
         {
@@ -28,26 +27,15 @@ namespace DeathSmashBros.Engine.Drawables
             if(mouseIntersects())
             {
                 shownTexture = hoverTexture;
+                if(clicked())
+                {
+                    Console.WriteLine("klik");
+                }
             }
             else
             {
                 shownTexture = mainTexture;
             }         
         }
-
-        //Checks if the mouse is on the button
-        private bool mouseIntersects()
-        {
-            MouseState mouseState = Mouse.GetState();
-            Point mousePoint = new Point(mouseState.X, mouseState.Y);
-            
-            if (getRectangle().Contains(mousePoint))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        //TODO: Werken met de onclick event
     }
 }

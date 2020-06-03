@@ -16,7 +16,7 @@ namespace DeathSmashBros.Engine.Drawables
 
         public override void draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(shownTexture, position, Color.White);
+            spriteBatch.Draw(shownTexture, getRectangle(), Color.White);
         }
 
         public override void update()

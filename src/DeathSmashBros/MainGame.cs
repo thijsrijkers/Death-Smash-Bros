@@ -14,6 +14,7 @@ namespace DeathSmashBros
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Button button;
+        Image image;
 
         public MainGame()
         {
@@ -44,6 +45,7 @@ namespace DeathSmashBros
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             button = new Button(Content.Load<Texture2D>("button-red"), new Vector2(0, 0), new Vector2(200, 200), Content.Load<Texture2D>("button-red-hover"));
+            image = new Image(Content.Load<Texture2D>("button-red"), new Vector2(200, 200), new Vector2(200, 200));
 
             // TODO: use this.Content to load your game content here
         }
@@ -86,6 +88,7 @@ namespace DeathSmashBros
             spriteBatch.Begin();
 
             button.draw(spriteBatch);
+            image.draw(spriteBatch);
 
             spriteBatch.End();
 

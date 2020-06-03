@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,6 @@ namespace DeathSmashBros.Engine.Drawables
         protected Vector2 position;
         protected Vector2 scale;
 
-        public delegate void OnClickDelegate(Drawable drawable);
-        public event OnClickDelegate OnClick;
-
         public Drawable(Texture2D _texture, Vector2 _position, Vector2 _scale)
         {
             mainTexture = _texture;
@@ -29,6 +27,30 @@ namespace DeathSmashBros.Engine.Drawables
         public abstract void draw(SpriteBatch spriteBatch);
 
         public abstract void update();
+
+        //Checks if the mouse is on the drawable
+        protected bool mouseIntersects()
+        {
+            MouseState mouseState = Mouse.GetState();
+            Point mousePoint = new Point(mouseState.X, mouseState.Y);
+
+            if (getRectangle().Contains(mousePoint))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //Checks if the drawable was clicked
+        protected bool clicked()
+        {
+            MouseState mouseState = Mouse.GetState();
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                return true;
+            }
+            return false;
+        }
 
         // Creates a rectangle to wrap the texture in
         public Rectangle getRectangle()
