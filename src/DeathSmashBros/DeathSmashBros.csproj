@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\Characters\Character.cs" />
+    <Compile Include="Engine\Characters\Rabfist.cs" />
+    <Compile Include="Engine\Characters\Voidking.cs" />
+    <Compile Include="Engine\Characters\Wraith.cs" />
     <Compile Include="Engine\Drawables\Button.cs" />
     <Compile Include="Engine\Drawables\Drawable.cs" />
     <Compile Include="Engine\Drawables\Image.cs" />

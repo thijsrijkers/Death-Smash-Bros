@@ -11,9 +11,5 @@ namespace DeathSmashBros.Engine
         public Character character;
 
         public abstract void Update();
-        public virtual void KeyPressed()
-        {
-            // TODO
-        }
     }
 }
