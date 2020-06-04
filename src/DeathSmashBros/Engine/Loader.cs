@@ -9,17 +9,16 @@ namespace DeathSmashBros.Engine
 {
     public static class Loader
     {
-        private static MainGame _game;
+        private static MainGame game;
 
-        public static void Init(MainGame game)
+        public static void Init(MainGame _game)
         {
-            _game = game;
+            game = _game;
         }
 
         public static Texture2D getTexture(string path)
         {
-            // TODO
-            return null;
+            return game.Content.Load<Texture2D>(path);
         }
     }
 }

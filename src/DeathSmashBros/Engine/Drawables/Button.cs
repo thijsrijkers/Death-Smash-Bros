@@ -12,10 +12,14 @@ namespace DeathSmashBros.Engine.Drawables
     public class Button : Drawable
     {
         private Texture2D hoverTexture;
+        private bool enlarged = false;
         public Button(Texture2D _texture, Vector2 _position, Vector2 _scale, Texture2D _hoverTexture) : base(_texture, _position, _scale)
         {
             hoverTexture = _hoverTexture;
+        
         }
+
+        public Button(Texture2D _texture, Vector2 _position, Vector2 _scale) : base(_texture, _position, _scale) {}
 
         public override void draw(SpriteBatch spriteBatch)
         {
@@ -24,18 +28,54 @@ namespace DeathSmashBros.Engine.Drawables
 
         public override void update()
         {
-            if(mouseIntersects())
+            
+            if (mouseIntersects())
             {
-                shownTexture = hoverTexture;
+                hover();
+
                 if(clicked())
                 {
-                    Console.WriteLine("klik");
+                    
                 }
             }
             else
             {
-                shownTexture = mainTexture;
+                noHover();
             }         
+        }
+
+        private void hover()
+        {
+            if(hoverTexture != null)
+            {
+                shownTexture = hoverTexture;               
+            }
+            else
+            {
+                if (!enlarged)
+                {
+                    scale.X += 10;
+                    scale.Y += 10;
+                    enlarged = true;
+                }
+            }
+        }
+
+        private void noHover()
+        {
+            if(hoverTexture != null)
+            {
+                shownTexture = mainTexture;
+            }
+            else
+            {
+                if (enlarged)
+                {
+                    scale.X -= 10;
+                    scale.Y -= 10;
+                    enlarged = false;
+                }
+            }
         }
     }
 }

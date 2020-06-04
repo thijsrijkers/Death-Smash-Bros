@@ -10,9 +10,7 @@ namespace DeathSmashBros.Engine.Drawables
 {
     public class Image : Drawable
     {
-        public Image(Texture2D _texture, Vector2 _position, Vector2 _scale) : base(_texture, _position, _scale)
-        {
-        }
+        public Image(Texture2D _texture, Vector2 _position, Vector2 _scale) : base(_texture, _position, _scale) {}
 
         public override void draw(SpriteBatch spriteBatch)
         {

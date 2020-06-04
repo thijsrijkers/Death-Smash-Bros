@@ -9,8 +9,14 @@ namespace DeathSmashBros.Engine.Screens
 {
     public class CharacterSelectScreen : Screen
     {
-        public CharacterSelectScreen(string name, Texture2D background) : base(name, background)
+        public CharacterSelectScreen() : base()
         {
+            name = "characterSelect";
+        }
+
+        public override void loadContent()
+        {
+            throw new NotImplementedException();
         }
     }
 }
