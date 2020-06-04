@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DeathSmashBros.Engine.Players
@@ -10,7 +11,11 @@ namespace DeathSmashBros.Engine.Players
     {
         public override void Update()
         {
-            throw new NotImplementedException(); // TODO
+            while (true)
+            {
+
+                Thread.Sleep(1000);
+            }
         }
     }
 }
