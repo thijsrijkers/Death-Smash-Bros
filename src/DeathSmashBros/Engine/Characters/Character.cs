@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine.Characters;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,7 @@ namespace DeathSmashBros.Engine
 {
     public abstract class Character
     {
+        public Rabfist rabfist;
+        public Wraith wraith;
     }
 }

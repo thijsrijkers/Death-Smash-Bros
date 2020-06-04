@@ -46,6 +46,13 @@ namespace DeathSmashBros.Engine.Characters
             sb.Draw(_textures[_currentframe], new Rectangle(x, y, rwidth, rheight), light ?? Color.White);
         }
 
+        public Vector2 getPosition
+        {
+            get
+            {
+                return new Vector2(Hitbox.X, Hitbox.Y);
+            }
+        }
 
         public void regularAttack()
         {
