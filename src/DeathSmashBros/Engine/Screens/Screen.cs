@@ -9,9 +9,9 @@ namespace DeathSmashBros.Engine
 {
     public abstract class Screen
     {
-        private string name;
-        private Texture2D background;
-        private List<object> drawables; // TODO drawable object
+        public string name;
+        public Texture2D background;
+        public List<object> drawables; // TODO drawable object
 
         public Screen(string name, Texture2D background)
         {
