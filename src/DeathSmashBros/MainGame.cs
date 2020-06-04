@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine;
+using DeathSmashBros.Engine.Drawables;
+using DeathSmashBros.Engine.Screens;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +14,7 @@ namespace DeathSmashBros
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        HomeScreen homeScreen;
 
         public MainGame()
         {
@@ -28,6 +32,8 @@ namespace DeathSmashBros
         {
             // TODO: Add your initialization logic here
 
+            this.IsMouseVisible = true;
+
             base.Initialize();
         }
 
@@ -39,6 +45,11 @@ namespace DeathSmashBros
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            Loader.Init(this);
+
+            homeScreen = new HomeScreen();
+            homeScreen.loadContent();
 
             // TODO: use this.Content to load your game content here
         }
@@ -64,6 +75,8 @@ namespace DeathSmashBros
 
             // TODO: Add your update logic here
 
+            homeScreen.update();
+
             base.Update(gameTime);
         }
 
@@ -76,6 +89,11 @@ namespace DeathSmashBros
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            homeScreen.draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

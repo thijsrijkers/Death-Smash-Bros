@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using DeathSmashBros.Engine.Drawables;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,36 @@ namespace DeathSmashBros.Engine
 {
     public abstract class Screen
     {
-        private string name;
-        private Texture2D background;
-        private List<object> drawables; // TODO drawable object
+        protected string name;
+        protected Image background;
+        protected List<Drawable> drawables; 
 
-        public Screen(string name, Texture2D background)
+        public Screen()
         {
-            this.name = name;
-            this.drawables = new List<object>();
-            this.background = background;
+            drawables = new List<Drawable>();
         }
 
-        // TODO methods
+        public abstract void loadContent();
+
+        public void unloadContent()
+        {
+            drawables.Clear();
+        }
+
+        public virtual void update()
+        {
+            foreach(Drawable drawable in drawables)
+            {
+                drawable.update();
+            }
+        }
+
+        public virtual void draw(SpriteBatch spritebatch)
+        {
+            foreach(Drawable drawable in drawables)
+            {
+                drawable.draw(spritebatch);
+            }
+        }
     }
 }

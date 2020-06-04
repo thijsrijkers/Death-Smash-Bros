@@ -9,8 +9,14 @@ namespace DeathSmashBros.Engine.Screens
 {
     public class EndScreen : Screen
     {
-        public EndScreen(string name, Texture2D background) : base(name, background)
+        public EndScreen() : base()
         {
+            name = "end";
+        }
+
+        public override void loadContent()
+        {
+            throw new NotImplementedException();
         }
     }
 }

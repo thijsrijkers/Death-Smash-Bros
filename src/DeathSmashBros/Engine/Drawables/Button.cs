@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +12,70 @@ namespace DeathSmashBros.Engine.Drawables
     public class Button : Drawable
     {
         private Texture2D hoverTexture;
-        public Button(int x, int y, Texture2D texture, Texture2D hoverTexture) : base(x, y, texture)
+        private bool enlarged = false;
+        public Button(Texture2D _texture, Vector2 _position, Vector2 _scale, Texture2D _hoverTexture) : base(_texture, _position, _scale)
         {
+            hoverTexture = _hoverTexture;
+        
         }
 
-        // TODO override draw method to take hover texture into consideration
+        public Button(Texture2D _texture, Vector2 _position, Vector2 _scale) : base(_texture, _position, _scale) {}
+
+        public override void draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(shownTexture, getRectangle(), Color.White);
+        }
+
+        public override void update()
+        {
+            
+            if (mouseIntersects())
+            {
+                hover();
+
+                if(clicked())
+                {
+                    
+                }
+            }
+            else
+            {
+                noHover();
+            }         
+        }
+
+        private void hover()
+        {
+            if(hoverTexture != null)
+            {
+                shownTexture = hoverTexture;               
+            }
+            else
+            {
+                if (!enlarged)
+                {
+                    scale.X += 10;
+                    scale.Y += 10;
+                    enlarged = true;
+                }
+            }
+        }
+
+        private void noHover()
+        {
+            if(hoverTexture != null)
+            {
+                shownTexture = mainTexture;
+            }
+            else
+            {
+                if (enlarged)
+                {
+                    scale.X -= 10;
+                    scale.Y -= 10;
+                    enlarged = false;
+                }
+            }
+        }
     }
 }
