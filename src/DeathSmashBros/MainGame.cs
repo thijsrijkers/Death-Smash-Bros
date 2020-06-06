@@ -14,7 +14,7 @@ namespace DeathSmashBros
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        HomeScreen homeScreen;
+        Screen currentScreen;
 
         public MainGame()
         {
@@ -48,8 +48,8 @@ namespace DeathSmashBros
 
             Loader.Init(this);
 
-            homeScreen = new HomeScreen();
-            homeScreen.loadContent();
+            currentScreen = new EndScreen();
+            currentScreen.loadContent();
 
             // TODO: use this.Content to load your game content here
         }
@@ -75,7 +75,7 @@ namespace DeathSmashBros
 
             // TODO: Add your update logic here
 
-            homeScreen.update();
+            currentScreen.update();
 
             base.Update(gameTime);
         }
@@ -91,7 +91,7 @@ namespace DeathSmashBros
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            homeScreen.draw(spriteBatch);
+            currentScreen.draw(spriteBatch);
 
             spriteBatch.End();
 
