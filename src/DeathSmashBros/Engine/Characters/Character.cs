@@ -11,7 +11,21 @@ namespace DeathSmashBros.Engine
 {
     public abstract class Character
     {
-        public Rabfist rabfist;
-        public Wraith wraith;
+        public static Rectangle Hitbox;
+
+        public Vector2 getPosition
+        {
+            get
+            {
+                return new Vector2(Hitbox.X, Hitbox.Y);
+            }
+        }
+        public abstract void regularAttack();
+        public abstract void specialAttack();
+        public abstract void jumpAttack();
+        public abstract void jump();
+        public abstract void walkLeft();
+        public abstract void walkRight();
+
     }
 }

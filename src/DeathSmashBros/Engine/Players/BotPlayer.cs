@@ -9,7 +9,7 @@ namespace DeathSmashBros.Engine.Players
 {
     public class BotPlayer : Player
     {
-        Player player;
+
         public override void Update()
         {
             while (true)
@@ -18,64 +18,64 @@ namespace DeathSmashBros.Engine.Players
                 int num = rnd.Next(3);
 
                 //Walk-distance check. Rabfist is momenteel de bot/AI
-                if (player.character.rabfist.getPosition.X < player.character.wraith.getPosition.X)
+                if (character.getPosition.X < character.getPosition.X)
                 {
-                    double DistanceCheck = player.character.wraith.getPosition.X - player.character.rabfist.getPosition.X;
+                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
                     if (DistanceCheck > 100)
                     {
-                        player.character.rabfist.walkLeft();
+                        character.walkLeft();
                     }
                 }
-                else if(player.character.rabfist.getPosition.X > player.character.wraith.getPosition.X)
+                else if(character.getPosition.X > character.getPosition.X)
                 {
-                    double DistanceCheck = player.character.rabfist.getPosition.X - player.character.wraith.getPosition.X;
+                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
                     if (DistanceCheck > 100)
                     {
-                        player.character.rabfist.walkRight();
+                        character.walkRight();
                     }
                 }
-                else if (player.character.rabfist.getPosition.Y < player.character.wraith.getPosition.Y)
+                else if (character.getPosition.Y < character.getPosition.Y)
                 {
-                    player.character.rabfist.jump();
+                    character.jump();
                 }
 
                 //Attack check and distance check.
-                if (player.character.rabfist.getPosition.X < player.character.wraith.getPosition.X)
+                if (character.getPosition.X < character.getPosition.X)
                 {
-                    double DistanceCheck = player.character.wraith.getPosition.X - player.character.rabfist.getPosition.X;
+                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
                     if (DistanceCheck <= 100)
                     {
                         if(num != 1)
                         {
-                            player.character.rabfist.specialAttack();
+                            character.specialAttack();
                         }
                         else
                         {
-                            player.character.rabfist.regularAttack();
+                            character.regularAttack();
                         }
                     }
                 }
-                else if (player.character.rabfist.getPosition.X > player.character.wraith.getPosition.X)
+                else if (character.getPosition.X > character.getPosition.X)
                 {
-                    double DistanceCheck = player.character.rabfist.getPosition.X - player.character.wraith.getPosition.X;
+                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
                     if (DistanceCheck <= 100)
                     {
                         if (num != 1)
                         {
-                            player.character.rabfist.specialAttack();
+                            character.specialAttack();
                         }
                         else
                         {
-                            player.character.rabfist.regularAttack();
+                            character.regularAttack();
                         }
                     }
                 }
-                else if (player.character.rabfist.getPosition.Y <= player.character.wraith.getPosition.Y || player.character.rabfist.getPosition.Y >= player.character.wraith.getPosition.Y)
+                else if (character.getPosition.Y <= character.getPosition.Y || character.getPosition.Y >= character.getPosition.Y)
                 {
-                    double DistanceCheck = player.character.wraith.getPosition.Y - player.character.rabfist.getPosition.Y;
+                    double DistanceCheck = character.getPosition.Y - character.getPosition.Y;
                     if (DistanceCheck <= 100)
                     {
-                        player.character.rabfist.jumpAttack();
+                        character.jumpAttack();
                     }
                 }
 
