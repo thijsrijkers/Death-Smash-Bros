@@ -145,6 +145,18 @@
 /processorParam:TextureFormat=Color
 /build:rabfist.png
 
+#begin rabfist_playerselect.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:rabfist_playerselect.png
+
 #begin voidking_player.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -157,6 +169,18 @@
 /processorParam:TextureFormat=Color
 /build:voidking_player.png
 
+#begin voidking_playerselect.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:voidking_playerselect.png
+
 #begin wraith_player.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -168,4 +192,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:wraith_player.png
+
+#begin wraith_playerselect.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:wraith_playerselect.png
 

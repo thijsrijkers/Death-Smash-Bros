@@ -33,13 +33,10 @@ namespace DeathSmashBros.Engine.Screens
 
             while (y <= maxY)
             {
-                Console.WriteLine("x and y are " + x + "and " + y);
                 while (x <= maxX)
                 {
-                    
                     Button stageItem = new Button(Loader.getTexture("CloudStageButton"), new Vector2(x, y), new Vector2(200, 100));
                     drawables.Add(stageItem);
-                    Console.WriteLine("x and y are " + x + "and " + y);
 
                     x += 210;
                 }
@@ -47,14 +44,9 @@ namespace DeathSmashBros.Engine.Screens
                 y += 125;
             }
 
-            
-
             Button back = new Button(Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
-
             
             drawables.Add(back);
-            
-
         }
     }
 }
