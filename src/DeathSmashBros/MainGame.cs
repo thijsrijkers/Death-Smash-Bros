@@ -48,7 +48,7 @@ namespace DeathSmashBros
 
             Loader.Init(this);
 
-            currentScreen = new CharacterSelectScreen();
+            currentScreen = new SceneSelectScreen();
             currentScreen.loadContent();
 
             // TODO: use this.Content to load your game content here

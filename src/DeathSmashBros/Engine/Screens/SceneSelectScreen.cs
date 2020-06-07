@@ -41,7 +41,7 @@ namespace DeathSmashBros.Engine.Screens
                     drawables.Add(stageItem);
                     Console.WriteLine("x and y are " + x + "and " + y);
 
-                    x += 200;
+                    x += 210;
                 }
                 x = minX;
                 y += 125;
