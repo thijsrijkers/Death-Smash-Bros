@@ -21,15 +21,22 @@ namespace DeathSmashBros.Engine
         public void AddScreen(Screen screen)
         {
             this.screens.Add(screen);
-            screen.loadContent();
         }
 
         public void ChangeScreen(string name)
         {
+            // Unload the previous screen
+            if(this.current != "")
+            {
+                screens.First(x => x.name == current).unloadContent();
+            }
+                          
+            // Load the new screen
             this.current = name;
+            screens.First(x => x.name == current).loadContent();
         }
         
-        public void UpdateScreen(GameTime gameTime)
+        public void UpdateScreen()
         {
             screens.First(x => x.name == current).update();
         }

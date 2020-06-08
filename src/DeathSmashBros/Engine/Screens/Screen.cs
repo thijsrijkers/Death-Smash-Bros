@@ -11,12 +11,13 @@ namespace DeathSmashBros.Engine
     public abstract class Screen
     {
         public string name;
-        protected Image background;
+        protected ScreenManager screenManager;
         protected List<Drawable> drawables; 
 
-        public Screen()
+        public Screen(ScreenManager _screenManager)
         {
             drawables = new List<Drawable>();
+            screenManager = _screenManager;
         }
 
         public abstract void loadContent();
@@ -28,17 +29,17 @@ namespace DeathSmashBros.Engine
 
         public virtual void update()
         {
-            foreach(Drawable drawable in drawables)
+            for(int i = 0; i < drawables.Count; i++)
             {
-                drawable.update();
+                drawables[i].update();
             }
         }
 
         public virtual void draw(SpriteBatch spritebatch)
         {
-            foreach(Drawable drawable in drawables)
+            for(int i = 0; i < drawables.Count; i++)
             {
-                drawable.draw(spritebatch);
+                drawables[i].draw(spritebatch);
             }
         }
     }

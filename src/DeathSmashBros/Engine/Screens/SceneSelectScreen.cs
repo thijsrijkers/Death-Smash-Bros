@@ -12,16 +12,16 @@ namespace DeathSmashBros.Engine.Screens
 {
     public class SceneSelectScreen : Screen
     {
-        public SceneSelectScreen() : base()
+        public SceneSelectScreen(ScreenManager _screenManager) : base(_screenManager)
         {
-            name = "sceneselect";
+            name = "sceneSelect";
         }
 
         public override void loadContent()
         {
             int bgHeight = GraphicsDeviceManager.DefaultBackBufferHeight;
             int bgWidth = GraphicsDeviceManager.DefaultBackBufferWidth;
-            background = new Image(Loader.getTexture("backgroundCharacterWorldMenu"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
+            Image background = new Image(Loader.getTexture("backgroundCharacterWorldMenu"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
             drawables.Add(background);
 
             int minX = 150;
@@ -35,7 +35,7 @@ namespace DeathSmashBros.Engine.Screens
             {
                 while (x <= maxX)
                 {
-                    Button stageItem = new Button(Loader.getTexture("CloudStageButton"), new Vector2(x, y), new Vector2(200, 100));
+                    Button stageItem = new Button("cloud", Loader.getTexture("CloudStageButton"), new Vector2(x, y), new Vector2(200, 100));
                     drawables.Add(stageItem);
 
                     x += 210;
@@ -44,7 +44,7 @@ namespace DeathSmashBros.Engine.Screens
                 y += 125;
             }
 
-            Button back = new Button(Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
+            Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
             
             drawables.Add(back);
         }
