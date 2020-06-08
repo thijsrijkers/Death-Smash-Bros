@@ -34,7 +34,6 @@ namespace DeathSmashBros
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            this.Window.AllowUserResizing = true;
             base.Initialize();
         }
 
@@ -49,6 +48,7 @@ namespace DeathSmashBros
 
             renderTarget = new RenderTarget2D(GraphicsDevice, RENDER_WIDTH, RENDER_HEIGHT);
 
+            // test animation load
             List<Texture2D> voidk = new List<Texture2D>();
             for(int i = 1; i < 9; i++)
             {
