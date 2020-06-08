@@ -13,6 +13,7 @@ namespace DeathSmashBros.Engine
         private List<Texture2D> frames;
         private TimeSpan animationTime;
         private int currentFrame;
+        public bool AnimationEnded = false;
 
         public Animation(TimeSpan animationTime, params Texture2D[] frames)
         {
@@ -23,11 +24,16 @@ namespace DeathSmashBros.Engine
 
         public void Update(GameTime gameTime)
         {
-            if(this.frames.Count > 0)
+            if (this.frames.Count > 0)
             {
                 var timer = gameTime.TotalGameTime.TotalMilliseconds % animationTime.TotalMilliseconds;
                 var progress = (100 / animationTime.TotalMilliseconds) * timer;
                 this.currentFrame = (int)Math.Abs((frames.Count * progress) / 100);
+
+                if(this.currentFrame == this.frames.Count - 1)
+                {
+                    AnimationEnded = true;
+                }
             }
         }
 
