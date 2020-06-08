@@ -81,6 +81,7 @@ namespace DeathSmashBros.Engine.Players
 
                 //The tread timer.
                 Thread.Sleep(600);
+                // TODO andere oplossing
             }
         }
     }
