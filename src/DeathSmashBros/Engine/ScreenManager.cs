@@ -18,6 +18,12 @@ namespace DeathSmashBros.Engine
             this.screens = new List<Screen>();
         }
 
+        public void AddScreen(Screen screen)
+        {
+            this.screens.Add(screen);
+            screen.loadContent();
+        }
+
         public void ChangeScreen(string name)
         {
             this.current = name;
@@ -25,12 +31,12 @@ namespace DeathSmashBros.Engine
         
         public void UpdateScreen(GameTime gameTime)
         {
-            //screens.First(x => x.name == current) Update method??
+            screens.First(x => x.name == current).update();
         }
 
         public void DrawScreen(SpriteBatch spriteBatch)
         {
-            //screens.First(x => x.name == current) Draw method??
+            screens.First(x => x.name == current).draw(spriteBatch);
         }
     }
 }

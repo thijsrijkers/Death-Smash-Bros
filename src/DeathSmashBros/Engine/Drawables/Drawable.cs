@@ -31,8 +31,7 @@ namespace DeathSmashBros.Engine.Drawables
         //Checks if the mouse is on the drawable
         protected bool mouseIntersects()
         {
-            MouseState mouseState = Mouse.GetState();
-            Point mousePoint = new Point(mouseState.X, mouseState.Y);
+            Point mousePoint = MainGame.MousePositions;
 
             if (getRectangle().Contains(mousePoint))
             {
