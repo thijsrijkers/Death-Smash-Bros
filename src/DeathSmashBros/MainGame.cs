@@ -24,7 +24,7 @@ namespace DeathSmashBros
         RenderTarget2D renderTarget;
 
         // Test voor animation
-        Animation voidking_idle;
+        //Animation voidking_idle;
 
         public MainGame()
         {
@@ -41,20 +41,30 @@ namespace DeathSmashBros
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Loader.Init(this);
+
             // Generate screens
-            this.screenManager = new ScreenManager();
-            this.screenManager.AddScreen(new CharacterSelectScreen());
-            this.screenManager.ChangeScreen("characterSelect"); // initiele screen
+            screenManager = new ScreenManager();
+            screenManager.AddScreen(new HomeScreen(screenManager));
+            screenManager.AddScreen(new CharacterSelectScreen(screenManager));
+            screenManager.AddScreen(new SceneSelectScreen(screenManager));
+            // TODO: FightScreen toevoegen wanneer gereed
+            screenManager.AddScreen(new EndScreen(screenManager));
+            screenManager.ChangeScreen("home"); // initiele screen
 
             renderTarget = new RenderTarget2D(GraphicsDevice, RENDER_WIDTH, RENDER_HEIGHT);
 
-            // test animation load
+            /*
+             
+            // Test animation load
             List<Texture2D> voidk = new List<Texture2D>();
             for(int i = 1; i < 9; i++)
             {
                 voidk.Add(Loader.getTexture($"characters/Voidking/idle/idle{i}"));
             }
             voidking_idle = new Animation(TimeSpan.FromMilliseconds(1300), voidk.ToArray());
+
+            */
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -78,9 +88,9 @@ namespace DeathSmashBros
             // misschien een mogelijkheid ergens deze waardes zonder statics door te voeren naar de desbetreffende classes?
 
 
-            screenManager.UpdateScreen(gameTime);
+            screenManager.UpdateScreen();
 
-            voidking_idle.Update(gameTime);
+            //voidking_idle.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -99,7 +109,7 @@ namespace DeathSmashBros
             GraphicsDevice.SetRenderTarget(null);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             spriteBatch.Draw(renderTarget, new Rectangle(0,0,Window.ClientBounds.Width, Window.ClientBounds.Height), Color.White);
-            voidking_idle.Draw(spriteBatch, new Vector2(15, 15), new Vector2(300, 300));
+            //voidking_idle.Draw(spriteBatch, new Vector2(15, 15), new Vector2(300, 300));
             spriteBatch.End();
 
             base.Draw(gameTime);

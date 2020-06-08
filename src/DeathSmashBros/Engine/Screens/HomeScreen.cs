@@ -13,23 +13,38 @@ namespace DeathSmashBros.Engine.Screens
     public class HomeScreen : Screen
     {
 
-        public HomeScreen() : base() 
+        public HomeScreen(ScreenManager _screenManager) : base(_screenManager) 
         {
             name = "home";
         }
 
         public override void loadContent()
         {
-            int bgHeight = GraphicsDeviceManager.DefaultBackBufferHeight;
-            int bgWidth = GraphicsDeviceManager.DefaultBackBufferWidth;
-            background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
+            int bgHeight = MainGame.RENDER_HEIGHT;
+            int bgWidth = MainGame.RENDER_WIDTH;
+            Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
-            Button startButton = new Button(Loader.getTexture("homescreen-startbutton"), new Vector2(150, 300), new Vector2(200, 100));
-            Button quitButton = new Button(Loader.getTexture("homescreen-quitbutton"), new Vector2(440, 300), new Vector2(200, 100));
+            Button startButton = new Button("start", Loader.getTexture("homescreen-startbutton"), new Vector2(150, 300), new Vector2(200, 100));
+            Button quitButton = new Button("quit", Loader.getTexture("homescreen-quitbutton"), new Vector2(440, 300), new Vector2(200, 100));
+
+            // Events
+            startButton.click += StartButton_click;
+            quitButton.click += QuitButton_click;
 
             drawables.Add(background);
             drawables.Add(startButton);
             drawables.Add(quitButton);
         }
+
+        private void StartButton_click(object sender, EventArgs e)
+        {
+            screenManager.ChangeScreen("characterSelect");
+        }
+
+        private void QuitButton_click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
+
     }
 }

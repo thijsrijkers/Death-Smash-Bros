@@ -11,7 +11,7 @@ namespace DeathSmashBros.Engine.Screens
 {
     public class EndScreen : Screen
     {
-        public EndScreen() : base()
+        public EndScreen(ScreenManager _screenManager) : base(_screenManager)
         {
             name = "end";
         }
@@ -20,10 +20,10 @@ namespace DeathSmashBros.Engine.Screens
         {
             //TODO: winnaar en verliezer laten zien op basis van een echte uitslag en dus niet hardcoded sprites
 
-            int bgHeight = GraphicsDeviceManager.DefaultBackBufferHeight;
-            int bgWidth = GraphicsDeviceManager.DefaultBackBufferWidth;
+            int bgHeight = MainGame.RENDER_HEIGHT;
+            int bgWidth = MainGame.RENDER_WIDTH;
 
-            background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
+            Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
             Image winnerSprite = new Image(Loader.getTexture("rabfist"), new Vector2(0, 0), new Vector2(400, bgHeight));
 

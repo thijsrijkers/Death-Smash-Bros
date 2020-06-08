@@ -13,13 +13,19 @@ namespace DeathSmashBros.Engine.Drawables
     {
         private Texture2D hoverTexture;
         private bool enlarged = false;
-        public Button(Texture2D _texture, Vector2 _position, Vector2 _scale, Texture2D _hoverTexture) : base(_texture, _position, _scale)
+        public event EventHandler click;
+        public string name { get; }
+
+        public Button(string _name, Texture2D _texture, Vector2 _position, Vector2 _scale, Texture2D _hoverTexture) : base(_texture, _position, _scale)
         {
             hoverTexture = _hoverTexture;
-        
+            name = _name;
         }
 
-        public Button(Texture2D _texture, Vector2 _position, Vector2 _scale) : base(_texture, _position, _scale) {}
+        public Button(string _name, Texture2D _texture, Vector2 _position, Vector2 _scale) : base(_texture, _position, _scale) 
+        {
+            name = _name;
+        }
 
         public override void draw(SpriteBatch spriteBatch)
         {
@@ -35,7 +41,7 @@ namespace DeathSmashBros.Engine.Drawables
 
                 if(clicked())
                 {
-                    
+                    click?.Invoke(this, new EventArgs());
                 }
             }
             else
