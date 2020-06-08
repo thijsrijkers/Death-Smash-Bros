@@ -43,6 +43,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Engine\Animation.cs" />
     <Compile Include="Engine\Characters\Character.cs" />
     <Compile Include="Engine\Characters\Rabfist.cs" />
     <Compile Include="Engine\Characters\Voidking.cs" />

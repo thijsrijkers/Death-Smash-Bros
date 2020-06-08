@@ -4,11 +4,16 @@ using DeathSmashBros.Engine.Screens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
 
 namespace DeathSmashBros
 {
     public class MainGame : Game
     {
+        public const int RENDER_WIDTH = 1920;
+        public const int RENDER_HEIGHT = 1080;
+
         public static Point MousePositions;
 
         GraphicsDeviceManager graphics;
@@ -18,6 +23,9 @@ namespace DeathSmashBros
         // 1920x1080 rendering, scaled
         RenderTarget2D renderTarget;
 
+        // Test voor animation
+        Animation voidking_idle;
+
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,6 +34,7 @@ namespace DeathSmashBros
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
+            //this.Window.AllowUserResizing = true;
             base.Initialize();
         }
 
@@ -38,7 +47,14 @@ namespace DeathSmashBros
             this.screenManager.AddScreen(new CharacterSelectScreen());
             this.screenManager.ChangeScreen("characterSelect"); // initiele screen
 
-            renderTarget = new RenderTarget2D(GraphicsDevice, 1920, 1080);
+            renderTarget = new RenderTarget2D(GraphicsDevice, RENDER_WIDTH, RENDER_HEIGHT);
+
+            List<Texture2D> voidk = new List<Texture2D>();
+            for(int i = 1; i < 9; i++)
+            {
+                voidk.Add(Loader.getTexture($"characters/Voidking/idle/idle{i}"));
+            }
+            voidking_idle = new Animation(TimeSpan.FromMilliseconds(1300), voidk.ToArray());
             // TODO: use this.Content to load your game content here
         }
 
@@ -56,13 +72,15 @@ namespace DeathSmashBros
             var mousestate = Mouse.GetState();
             var mouseX = mousestate.X;
             var mouseY = mousestate.Y; // Positions relative to window
-            mouseX = (int)(((float)mouseX / Window.ClientBounds.Width) * 1920);
-            mouseY = (int)(((float)mouseY / Window.ClientBounds.Height) * 1080);
+            mouseX = (int)(((float)mouseX / Window.ClientBounds.Width) * RENDER_WIDTH);
+            mouseY = (int)(((float)mouseY / Window.ClientBounds.Height) * RENDER_HEIGHT);
             MousePositions = new Point(mouseX, mouseY);
             // misschien een mogelijkheid ergens deze waardes zonder statics door te voeren naar de desbetreffende classes?
 
 
             screenManager.UpdateScreen(gameTime);
+
+            voidking_idle.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -75,6 +93,7 @@ namespace DeathSmashBros
             GraphicsDevice.SetRenderTarget(renderTarget);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             screenManager.DrawScreen(spriteBatch);
+            voidking_idle.Draw(spriteBatch, new Vector2(600, 300), new Vector2(750, 750));
             spriteBatch.End();
 
             // rendertarget renderen naar window

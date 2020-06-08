@@ -19,8 +19,8 @@ namespace DeathSmashBros.Engine.Screens
 
         public override void loadContent()
         {
-            int bgHeight = GraphicsDeviceManager.DefaultBackBufferHeight;
-            int bgWidth = GraphicsDeviceManager.DefaultBackBufferWidth;
+            int bgHeight = MainGame.RENDER_HEIGHT;
+            int bgWidth = MainGame.RENDER_WIDTH;
             background = new Image(Loader.getTexture("backgroundCharacterWorldMenu"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
             drawables.Add(background);
 
