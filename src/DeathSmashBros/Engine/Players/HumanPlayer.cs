@@ -9,7 +9,7 @@ namespace DeathSmashBros.Engine.Players
 {
     public class HumanPlayer : Player
     {
-        public override void Update()
+        public override void Update(Player otherPlayer)
         {
             var keyboardState = Keyboard.GetState();
 

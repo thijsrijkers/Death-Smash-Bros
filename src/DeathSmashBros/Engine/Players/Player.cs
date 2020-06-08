@@ -10,6 +10,6 @@ namespace DeathSmashBros.Engine
     {
         public Character character;
 
-        public abstract void Update();
+        public abstract void Update(Player otherPlayer);
     }
 }
