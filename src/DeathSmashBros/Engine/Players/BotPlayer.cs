@@ -10,72 +10,73 @@ namespace DeathSmashBros.Engine.Players
     public class BotPlayer : Player
     {
 
-        public override void Update()
+        public override void Update(Player otherPlayer)
         {
+             
             while (true)
             {
                 Random rnd = new Random();
                 int num = rnd.Next(3);
 
                 //Walk-distance check. Rabfist is momenteel de bot/AI
-                if (character.getPosition.X < character.getPosition.X)
+                if (this.character.getPosition.X < otherPlayer.character.getPosition.X)
                 {
-                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
+                    double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck > 100)
                     {
-                        character.walkLeft();
+                        this.character.walkLeft();
                     }
                 }
-                else if(character.getPosition.X > character.getPosition.X)
+                else if(this.character.getPosition.X > otherPlayer.character.getPosition.X)
                 {
-                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
+                    double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck > 100)
                     {
-                        character.walkRight();
+                        this.character.walkRight();
                     }
                 }
-                else if (character.getPosition.Y < character.getPosition.Y)
+                else if (this.character.getPosition.Y < otherPlayer.character.getPosition.Y)
                 {
-                    character.jump();
+                    this.character.jump();
                 }
 
                 //Attack check and distance check.
-                if (character.getPosition.X < character.getPosition.X)
+                if (this.character.getPosition.X < otherPlayer.character.getPosition.X)
                 {
-                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
+                    double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck <= 100)
                     {
                         if(num != 1)
                         {
-                            character.specialAttack();
+                            this.character.specialAttack();
                         }
                         else
                         {
-                            character.regularAttack();
+                            this.character.regularAttack();
                         }
                     }
                 }
-                else if (character.getPosition.X > character.getPosition.X)
+                else if (this.character.getPosition.X > otherPlayer.character.getPosition.X)
                 {
-                    double DistanceCheck = character.getPosition.X - character.getPosition.X;
+                    double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck <= 100)
                     {
                         if (num != 1)
                         {
-                            character.specialAttack();
+                            this.character.specialAttack();
                         }
                         else
                         {
-                            character.regularAttack();
+                            this.character.regularAttack();
                         }
                     }
                 }
-                else if (character.getPosition.Y <= character.getPosition.Y || character.getPosition.Y >= character.getPosition.Y)
+                else if (this.character.getPosition.Y <= otherPlayer.character.getPosition.Y || this.character.getPosition.Y >= otherPlayer.character.getPosition.Y)
                 {
-                    double DistanceCheck = character.getPosition.Y - character.getPosition.Y;
+                    double DistanceCheck = this.character.getPosition.Y - otherPlayer.character.getPosition.Y;
                     if (DistanceCheck <= 100)
                     {
-                        character.jumpAttack();
+                        this.character.jumpAttack();
                     }
                 }
 
