@@ -18,7 +18,9 @@ namespace DeathSmashBros.Engine
 
         public static Texture2D getTexture(string path)
         {
-            return game.Content.Load<Texture2D>(path);
+            // Laadt een texture in van de content pipeline.
+            // TODO caching
+            return _game.Content.Load<Texture2D>(path);
         }
     }
 }

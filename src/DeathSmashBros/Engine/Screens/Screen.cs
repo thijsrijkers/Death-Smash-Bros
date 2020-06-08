@@ -10,7 +10,7 @@ namespace DeathSmashBros.Engine
 {
     public abstract class Screen
     {
-        protected string name;
+        public string name;
         protected Image background;
         protected List<Drawable> drawables; 
 
