@@ -34,7 +34,7 @@ namespace DeathSmashBros
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            //this.Window.AllowUserResizing = true;
+            this.Window.AllowUserResizing = true;
             base.Initialize();
         }
 
