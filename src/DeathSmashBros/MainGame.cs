@@ -11,8 +11,8 @@ namespace DeathSmashBros
 {
     public class MainGame : Game
     {
-        public const int RENDER_WIDTH = 1920;
-        public const int RENDER_HEIGHT = 1080;
+        public const int RENDER_WIDTH = 800;
+        public const int RENDER_HEIGHT = 480;
 
         public static Point MousePositions;
 
@@ -93,13 +93,13 @@ namespace DeathSmashBros
             GraphicsDevice.SetRenderTarget(renderTarget);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             screenManager.DrawScreen(spriteBatch);
-            voidking_idle.Draw(spriteBatch, new Vector2(600, 300), new Vector2(750, 750));
             spriteBatch.End();
 
             // rendertarget renderen naar window
             GraphicsDevice.SetRenderTarget(null);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             spriteBatch.Draw(renderTarget, new Rectangle(0,0,Window.ClientBounds.Width, Window.ClientBounds.Height), Color.White);
+            voidking_idle.Draw(spriteBatch, new Vector2(15, 15), new Vector2(300, 300));
             spriteBatch.End();
 
             base.Draw(gameTime);
