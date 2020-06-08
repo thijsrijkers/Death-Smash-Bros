@@ -20,7 +20,7 @@ namespace DeathSmashBros.Engine
         {
             // Laadt een texture in van de content pipeline.
             // TODO caching
-            return _game.Content.Load<Texture2D>(path);
+            return game.Content.Load<Texture2D>(path);
         }
     }
 }

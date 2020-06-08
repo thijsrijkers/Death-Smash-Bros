@@ -53,7 +53,7 @@ namespace DeathSmashBros
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
             currentScreen.draw(spriteBatch);
 
