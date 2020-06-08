@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using DeathSmashBros.Engine.Drawables;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +12,24 @@ namespace DeathSmashBros.Engine.Screens
 {
     public class HomeScreen : Screen
     {
-        public HomeScreen(string name, Texture2D background) : base(name, background)
+
+        public HomeScreen() : base() 
         {
+            name = "home";
+        }
+
+        public override void loadContent()
+        {
+            int bgHeight = GraphicsDeviceManager.DefaultBackBufferHeight;
+            int bgWidth = GraphicsDeviceManager.DefaultBackBufferWidth;
+            background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
+
+            Button startButton = new Button(Loader.getTexture("homescreen-startbutton"), new Vector2(150, 300), new Vector2(200, 100));
+            Button quitButton = new Button(Loader.getTexture("homescreen-quitbutton"), new Vector2(440, 300), new Vector2(200, 100));
+
+            drawables.Add(background);
+            drawables.Add(startButton);
+            drawables.Add(quitButton);
         }
     }
 }

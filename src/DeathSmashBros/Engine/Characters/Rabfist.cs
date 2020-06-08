@@ -46,33 +46,32 @@ namespace DeathSmashBros.Engine.Characters
             sb.Draw(_textures[_currentframe], new Rectangle(x, y, rwidth, rheight), light ?? Color.White);
         }
 
-
-        public void regularAttack()
+        public override void regularAttack()
         {
 
         }
 
-        public void specialAttack()
+        public override void specialAttack()
         {
 
         }
 
-        public void jumpAttack()
+        public override void jumpAttack()
         {
 
         }
 
-        public void jump()
+        public override void jump()
         {
 
         }
 
-        public void walkLeft()
+        public override void walkLeft()
         {
 
         }
 
-        public void walkRight()
+        public override void walkRight()
         {
 
         }
