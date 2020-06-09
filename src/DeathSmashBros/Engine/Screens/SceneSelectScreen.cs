@@ -36,17 +36,27 @@ namespace DeathSmashBros.Engine.Screens
                 while (x <= maxX)
                 {
                     Button stageItem = new Button("cloud", Loader.getTexture("CloudStageButton"), new Vector2(x, y), new Vector2(200, 100));
+                    stageItem.click += Stage_click;
                     drawables.Add(stageItem);
 
-                    x += 210;
+                    x += 315;
                 }
                 x = minX;
-                y += 125;
+                y += 375;
             }
 
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
-            
+            back.click += Back_click;
             drawables.Add(back);
+        }
+        private void Back_click(object sender, EventArgs e)
+        {
+            screenManager.ChangeScreen("home");
+        }
+
+        private void Stage_click(object sender, EventArgs e)
+        {
+            screenManager.ChangeScreen("characterSelect");
         }
     }
 }
