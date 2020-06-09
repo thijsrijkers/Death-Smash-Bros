@@ -18,7 +18,7 @@ namespace DeathSmashBros.Engine.Screens
             name = "home";
         }
 
-        public override void loadContent()
+        public override void LoadContent(ScreenData data)
         {
             int bgHeight = MainGame.RENDER_HEIGHT;
             int bgWidth = MainGame.RENDER_WIDTH;
@@ -34,6 +34,8 @@ namespace DeathSmashBros.Engine.Screens
             drawables.Add(background);
             drawables.Add(startButton);
             drawables.Add(quitButton);
+
+            base.LoadContent(data);
         }
 
         private void StartButton_click(object sender, EventArgs e)

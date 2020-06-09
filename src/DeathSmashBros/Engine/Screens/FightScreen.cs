@@ -14,9 +14,9 @@ namespace DeathSmashBros.Engine.Screens
             name = "fight";
         }
 
-        public override void loadContent()
+        public override void LoadContent(ScreenData data)
         {
-            throw new NotImplementedException();
+            base.LoadContent(data);
         }
     }
 }

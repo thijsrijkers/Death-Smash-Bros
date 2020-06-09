@@ -16,7 +16,7 @@ namespace DeathSmashBros.Engine.Screens
             name = "end";
         }
 
-        public override void loadContent()
+        public override void LoadContent(ScreenData data)
         {
             //TODO: winnaar en verliezer laten zien op basis van een echte uitslag en dus niet hardcoded sprites
 
@@ -34,6 +34,8 @@ namespace DeathSmashBros.Engine.Screens
             drawables.Add(winnerSprite);
             drawables.Add(winnerFrame);
             drawables.Add(loserFrame);
+
+            base.LoadContent(data);
         }
     }
 }

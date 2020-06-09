@@ -12,7 +12,8 @@ namespace DeathSmashBros.Engine
     {
         public string name;
         protected ScreenManager screenManager;
-        protected List<Drawable> drawables; 
+        protected List<Drawable> drawables;
+        private ScreenData screenData;
 
         public Screen(ScreenManager _screenManager)
         {
@@ -20,14 +21,19 @@ namespace DeathSmashBros.Engine
             screenManager = _screenManager;
         }
 
-        public abstract void loadContent();
-
-        public void unloadContent()
+        public virtual void LoadContent(ScreenData data)
         {
-            drawables.Clear();
+            this.screenData = data;
         }
 
-        public virtual void update()
+        // Pas screendata aan voordat je naar de volgende screen gaat
+        public ScreenData UnloadContent()
+        {
+            drawables.Clear();
+            return this.screenData;
+        }
+
+        public virtual void Update()
         {
             for(int i = 0; i < drawables.Count; i++)
             {
@@ -35,7 +41,7 @@ namespace DeathSmashBros.Engine
             }
         }
 
-        public virtual void draw(SpriteBatch spritebatch)
+        public virtual void Draw(SpriteBatch spritebatch)
         {
             for(int i = 0; i < drawables.Count; i++)
             {

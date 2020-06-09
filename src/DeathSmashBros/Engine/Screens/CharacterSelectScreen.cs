@@ -17,7 +17,7 @@ namespace DeathSmashBros.Engine.Screens
             name = "characterSelect";
         }
 
-        public override void loadContent()
+        public override void LoadContent(ScreenData data)
         {
             int bgHeight = MainGame.RENDER_HEIGHT;
             int bgWidth = MainGame.RENDER_WIDTH;
@@ -51,6 +51,8 @@ namespace DeathSmashBros.Engine.Screens
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
             back.click += Back_click;
             drawables.Add(back);
+
+            base.LoadContent(data);
         }
 
         private void Back_click(object sender, EventArgs e)
