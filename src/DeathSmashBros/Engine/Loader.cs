@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,28 @@ namespace DeathSmashBros.Engine
             // Laadt een texture in van de content pipeline.
             // TODO caching
             return game.Content.Load<Texture2D>(path);
+        }
+
+        public static void Exit()
+        {
+            game.Exit();
+        }
+
+        public static bool MousePressed { get; private set; }
+        private static MouseState previousState;
+        public static void UpdateMouse()
+        {
+            var currentState = Mouse.GetState();
+
+            if(currentState.LeftButton == ButtonState.Pressed && previousState.LeftButton == ButtonState.Released)
+            {
+                MousePressed = true;
+            }
+            else
+            {
+                MousePressed = false;
+            }
+            previousState = currentState;
         }
     }
 }

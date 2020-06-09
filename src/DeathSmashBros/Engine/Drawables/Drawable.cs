@@ -43,12 +43,7 @@ namespace DeathSmashBros.Engine.Drawables
         //Checks if the drawable was clicked
         protected bool clicked()
         {
-            MouseState mouseState = Mouse.GetState();
-            if (mouseState.LeftButton == ButtonState.Pressed)
-            {
-                return true;
-            }
-            return false;
+            return Loader.MousePressed;
         }
 
         // Creates a rectangle to wrap the texture in

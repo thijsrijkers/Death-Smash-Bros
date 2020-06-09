@@ -45,7 +45,7 @@ namespace DeathSmashBros.Engine.Screens
 
         private void QuitButton_click(object sender, EventArgs e)
         {
-            System.Environment.Exit(0);
+            Loader.Exit();
         }
 
     }
