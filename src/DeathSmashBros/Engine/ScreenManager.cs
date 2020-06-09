@@ -25,25 +25,30 @@ namespace DeathSmashBros.Engine
 
         public void ChangeScreen(string name)
         {
+            ScreenData data;
             // Unload the previous screen
             if(this.current != "")
             {
-                screens.First(x => x.name == current).unloadContent();
+                data = screens.First(x => x.name == current).UnloadContent();
+            }
+            else
+            {
+                data = new ScreenData();
             }
                           
             // Load the new screen
             this.current = name;
-            screens.First(x => x.name == current).loadContent();
+            screens.First(x => x.name == current).LoadContent(data);
         }
         
         public void UpdateScreen()
         {
-            screens.First(x => x.name == current).update();
+            screens.First(x => x.name == current).Update();
         }
 
         public void DrawScreen(SpriteBatch spriteBatch)
         {
-            screens.First(x => x.name == current).draw(spriteBatch);
+            screens.First(x => x.name == current).Draw(spriteBatch);
         }
     }
 }

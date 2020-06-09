@@ -17,7 +17,7 @@ namespace DeathSmashBros.Engine.Screens
             name = "sceneSelect";
         }
 
-        public override void loadContent()
+        public override void LoadContent(ScreenData data)
         {
             int bgHeight = GraphicsDeviceManager.DefaultBackBufferHeight;
             int bgWidth = GraphicsDeviceManager.DefaultBackBufferWidth;
@@ -47,6 +47,8 @@ namespace DeathSmashBros.Engine.Screens
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
             
             drawables.Add(back);
+
+            base.LoadContent(data);
         }
     }
 }
