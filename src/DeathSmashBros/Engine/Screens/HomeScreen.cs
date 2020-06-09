@@ -40,7 +40,7 @@ namespace DeathSmashBros.Engine.Screens
 
         private void StartButton_click(object sender, EventArgs e)
         {
-            screenManager.ChangeScreen("characterSelect");
+            screenManager.ChangeScreen("sceneSelect");
         }
 
         private void QuitButton_click(object sender, EventArgs e)

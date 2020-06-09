@@ -45,8 +45,8 @@ namespace DeathSmashBros
             // Generate screens
             screenManager = new ScreenManager();
             screenManager.AddScreen(new HomeScreen(screenManager));
-            screenManager.AddScreen(new CharacterSelectScreen(screenManager));
             screenManager.AddScreen(new SceneSelectScreen(screenManager));
+            screenManager.AddScreen(new CharacterSelectScreen(screenManager));
             // TODO: FightScreen toevoegen wanneer gereed
             screenManager.AddScreen(new EndScreen(screenManager));
             screenManager.ChangeScreen("home"); // initiele screen

@@ -45,7 +45,7 @@ namespace DeathSmashBros.Engine.Screens
                 drawables.Add(wraith);
 
                 x = minX;
-                y += 125;
+                y += 375;
             }
 
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
