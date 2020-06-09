@@ -13,7 +13,9 @@ namespace DeathSmashBros.Engine.Drawables
     {
         private Texture2D hoverTexture;
         private bool enlarged = false;
-        public event EventHandler click;
+
+        public delegate void ClickDelegate(Button button);
+        public event ClickDelegate click;
         public string name { get; }
 
         public Button(string _name, Texture2D _texture, Vector2 _position, Vector2 _scale, Texture2D _hoverTexture) : base(_texture, _position, _scale)
@@ -41,7 +43,7 @@ namespace DeathSmashBros.Engine.Drawables
 
                 if(clicked())
                 {
-                    click?.Invoke(this, new EventArgs());
+                    click?.Invoke(this);
                 }
             }
             else

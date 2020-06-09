@@ -19,6 +19,7 @@ namespace DeathSmashBros.Engine.Screens
         public override void LoadContent(ScreenData data)
         {
             //TODO: winnaar en verliezer laten zien op basis van een echte uitslag en dus niet hardcoded sprites
+            // Hoi, gebruik de ScreenData voor meenemen van data van/naar andere screens
 
             int bgHeight = MainGame.RENDER_HEIGHT;
             int bgWidth = MainGame.RENDER_WIDTH;

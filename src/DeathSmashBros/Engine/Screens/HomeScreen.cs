@@ -38,12 +38,12 @@ namespace DeathSmashBros.Engine.Screens
             base.LoadContent(data);
         }
 
-        private void StartButton_click(object sender, EventArgs e)
+        private void StartButton_click(Button button)
         {
             screenManager.ChangeScreen("sceneSelect");
         }
 
-        private void QuitButton_click(object sender, EventArgs e)
+        private void QuitButton_click(Button button)
         {
             Loader.Exit();
         }

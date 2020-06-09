@@ -51,13 +51,14 @@ namespace DeathSmashBros.Engine.Screens
 
             base.LoadContent(data);
         }
-        private void Back_click(object sender, EventArgs e)
+        private void Back_click(Button button)
         {
             screenManager.ChangeScreen("home");
         }
 
-        private void Stage_click(object sender, EventArgs e)
+        private void Stage_click(Button button)
         {
+            screenData.SelectedStage = button.name;
             screenManager.ChangeScreen("characterSelect");
         }
     }

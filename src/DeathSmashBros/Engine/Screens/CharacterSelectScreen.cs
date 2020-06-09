@@ -55,13 +55,14 @@ namespace DeathSmashBros.Engine.Screens
             base.LoadContent(data);
         }
 
-        private void Back_click(object sender, EventArgs e)
+        private void Back_click(Button button)
         {
             screenManager.ChangeScreen(this.screenData.PreviousScreen);
         }
 
-        private void Character_Click(object sender, EventArgs e)
+        private void Character_Click(Button button)
         {
+            screenData.SelectedCharacter = button.name;
             // TODO: naar scene select navigeren en de naam van de character meegeven
         }
     }

@@ -10,8 +10,14 @@ namespace DeathSmashBros.Engine
     {
         public string SelectedCharacter = "";
         public string SelectedBotCharacter = "";
+        public string SelectedStage = "";
+
+        public string Winner = "";
+        public string Loser = "";
+
         public int HumanPlayerStocks = 3;
         public int BotPlayerStocks = 3;
+
         public string PreviousScreen = "";
     }
 }
