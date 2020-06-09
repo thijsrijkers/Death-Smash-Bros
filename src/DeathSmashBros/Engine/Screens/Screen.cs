@@ -13,7 +13,7 @@ namespace DeathSmashBros.Engine
         public string name;
         protected ScreenManager screenManager;
         protected List<Drawable> drawables;
-        private ScreenData screenData;
+        protected ScreenData screenData;
 
         public Screen(ScreenManager _screenManager)
         {

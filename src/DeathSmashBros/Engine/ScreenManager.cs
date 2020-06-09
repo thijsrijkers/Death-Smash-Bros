@@ -35,7 +35,8 @@ namespace DeathSmashBros.Engine
             {
                 data = new ScreenData();
             }
-                          
+
+            data.PreviousScreen = this.current;
             // Load the new screen
             this.current = name;
             screens.First(x => x.name == current).LoadContent(data);

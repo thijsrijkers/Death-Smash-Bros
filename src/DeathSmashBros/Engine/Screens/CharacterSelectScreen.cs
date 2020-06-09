@@ -57,7 +57,7 @@ namespace DeathSmashBros.Engine.Screens
 
         private void Back_click(object sender, EventArgs e)
         {
-            screenManager.ChangeScreen("home");
+            screenManager.ChangeScreen(this.screenData.PreviousScreen);
         }
 
         private void Character_Click(object sender, EventArgs e)
