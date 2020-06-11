@@ -35,7 +35,7 @@ namespace DeathSmashBros.Engine
         {
             var currentState = Mouse.GetState();
 
-            if(currentState.LeftButton == ButtonState.Pressed && previousState.LeftButton == ButtonState.Released)
+            if(currentState.LeftButton == ButtonState.Released && previousState.LeftButton == ButtonState.Pressed)
             {
                 MousePressed = true;
             }
