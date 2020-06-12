@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine.Drawables;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,14 @@ namespace DeathSmashBros.Engine.Scenes
 {
     public abstract class Scene
     {
-        private Texture2D stage;
-        private List<Rectangle> hitboxes;
+        public Texture2D stage { get; protected set; }
+        public Texture2D stageBackground { get; protected set; }
+        public List<Rectangle> hitboxes { get; protected set; }
+        public string Name { get; private set; }
 
-        public Scene(Texture2D stage)
+        public Scene(string name)
         {
-            this.stage = stage;
-            this.hitboxes = new List<Rectangle>();
+            this.Name = name;
         }
     }
 }

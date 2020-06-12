@@ -36,10 +36,10 @@ namespace DeathSmashBros.Engine.Screens
                 rabfist.click += Character_Click;
                 x += 210;
                 Button voidking = new Button("voidking", Loader.getTexture("voidking_playerselect"), new Vector2(x, y), new Vector2(200, 100));
-                rabfist.click += Character_Click;
+                voidking.click += Character_Click;
                 x += 210;
                 Button wraith = new Button("wraith", Loader.getTexture("wraith_playerselect"), new Vector2(x, y), new Vector2(200, 100));
-                rabfist.click += Character_Click;
+                wraith.click += Character_Click;
                 drawables.Add(rabfist);
                 drawables.Add(voidking);
                 drawables.Add(wraith);
@@ -64,6 +64,7 @@ namespace DeathSmashBros.Engine.Screens
         {
             screenData.SelectedCharacter = button.name;
             // TODO: naar scene select navigeren en de naam van de character meegeven
+            screenManager.ChangeScreen("fight");
         }
     }
 }

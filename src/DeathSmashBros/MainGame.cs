@@ -1,5 +1,6 @@
 ﻿using DeathSmashBros.Engine;
 using DeathSmashBros.Engine.Drawables;
+using DeathSmashBros.Engine.Scenes;
 using DeathSmashBros.Engine.Screens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -19,9 +20,12 @@ namespace DeathSmashBros
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         ScreenManager screenManager;
+        SceneManager sceneManager;
 
         // 1920x1080 rendering, scaled
         RenderTarget2D renderTarget;
+
+        SpriteFont debugFont;
 
         // Test voor animation
         //Animation voidking_idle;
@@ -41,14 +45,18 @@ namespace DeathSmashBros
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Loader.Init(this);
+            debugFont = Content.Load<SpriteFont>("debugtext");
+            sceneManager = new SceneManager();
+            sceneManager.RegisterScene(new CloudStage());
 
             // Generate screens
             screenManager = new ScreenManager();
             screenManager.AddScreen(new HomeScreen(screenManager));
             screenManager.AddScreen(new SceneSelectScreen(screenManager));
             screenManager.AddScreen(new CharacterSelectScreen(screenManager));
-            // TODO: FightScreen toevoegen wanneer gereed
+            screenManager.AddScreen(new FightScreen(screenManager, sceneManager));
             screenManager.AddScreen(new EndScreen(screenManager));
+
             screenManager.ChangeScreen("home"); // initiele screen
 
             renderTarget = new RenderTarget2D(GraphicsDevice, RENDER_WIDTH, RENDER_HEIGHT);
@@ -111,6 +119,7 @@ namespace DeathSmashBros
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             spriteBatch.Draw(renderTarget, new Rectangle(0,0,Window.ClientBounds.Width, Window.ClientBounds.Height), Color.White);
             //voidking_idle.Draw(spriteBatch, new Vector2(15, 15), new Vector2(300, 300));
+            spriteBatch.DrawString(debugFont, $"mouse x {MousePositions.X} mouse y {MousePositions.Y}", Vector2.Zero, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

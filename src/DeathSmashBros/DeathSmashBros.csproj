@@ -55,9 +55,9 @@
     <Compile Include="Engine\Players\BotPlayer.cs" />
     <Compile Include="Engine\Players\HumanPlayer.cs" />
     <Compile Include="Engine\Players\Player.cs" />
+    <Compile Include="Engine\SceneManager.cs" />
     <Compile Include="Engine\Scenes\Scene.cs" />
-    <Compile Include="Engine\Scenes\Scene1.cs" />
-    <Compile Include="Engine\Scenes\Scene2.cs" />
+    <Compile Include="Engine\Scenes\CloudStage.cs" />
     <Compile Include="Engine\ScreenData.cs" />
     <Compile Include="Engine\Screens\CharacterSelectScreen.cs" />
     <Compile Include="Engine\Screens\EndScreen.cs" />

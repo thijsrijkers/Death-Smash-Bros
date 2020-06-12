@@ -805,6 +805,13 @@
 /processorParam:TextureFormat=Color
 /build:CloudStageButton.png
 
+#begin debugtext.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:debugtext.spritefont
+
 #begin homescreen-background.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -888,6 +895,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:rabfist_playerselect.png
+
+#begin stages/CloudStageBackround.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:stages/CloudStageBackround.png
+
+#begin stages/CloudStageStage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:stages/CloudStageStage.png
 
 #begin voidking_player.png
 /importer:TextureImporter
