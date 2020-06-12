@@ -10,7 +10,7 @@ namespace DeathSmashBros.Engine
 {
     public class Animation
     {
-        private List<Texture2D> frames;
+        internal List<Texture2D> frames;
         private TimeSpan animationTime;
         private int currentFrame;
         public bool AnimationEnded = false;

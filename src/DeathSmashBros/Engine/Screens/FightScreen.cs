@@ -32,6 +32,7 @@ namespace DeathSmashBros.Engine.Screens
 
             // TODO characters meenemen van ScreenData
             PlayerOne = new HumanPlayer(new Voidking());
+            PlayerOne.character.setPosition(new Vector2(200, 100));
             PlayerTwo = new BotPlayer(new Voidking());
 
             this.currentScene = sceneManager.GetScene(screenData.SelectedStage);

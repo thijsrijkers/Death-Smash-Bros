@@ -15,6 +15,8 @@ namespace DeathSmashBros.Engine.Characters
             this.gravity = 5;
             this.power = 3;
             this.speed = 2;
+            this.scale = new Vector2(240, 240);
+            this.renderOffset = new Vector2(400, 430);
 
             // inladen animations
             // idle

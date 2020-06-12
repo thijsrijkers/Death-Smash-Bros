@@ -13,7 +13,7 @@ namespace DeathSmashBros.Engine
     {
         // TODO positions
 
-        public static Rectangle Hitbox;
+        public Rectangle Hitbox;
 
         public int gravity;
         public int power;
@@ -25,6 +25,8 @@ namespace DeathSmashBros.Engine
         public int height;
 
         protected Dictionary<string, Animation> animations;
+        protected Vector2 scale;
+        protected Vector2 renderOffset;
         private string currentAnimation = "idle";
 
         public Character()
@@ -51,9 +53,21 @@ namespace DeathSmashBros.Engine
             }
         }
 
+        public void setPosition(Vector2 pos)
+        {
+            this.Hitbox.X = (int)pos.X;
+            this.Hitbox.Y = (int)pos.Y;
+        }
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            this.animations[currentAnimation].Draw(spriteBatch, new Vector2(0, 0), new Vector2(750, 750));
+            var offset = new Vector2();
+            // calculating new render pos with offset
+            var tex = this.animations.First().Value.frames.First();
+            offset.X = ((scale.X / tex.Width) * renderOffset.X);
+            offset.Y = ((scale.Y / tex.Height) * renderOffset.Y);
+
+            this.animations[currentAnimation].Draw(spriteBatch, new Vector2(Hitbox.X, Hitbox.Y) - offset, this.scale);
         }
 
         public virtual void Update(GameTime gameTime)
