@@ -19,32 +19,33 @@ namespace DeathSmashBros.Engine.Players
         public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
             base.Update(otherPlayer, gameTime, scene);
-            if (DateTime.Now.Subtract(previoustick).TotalMilliseconds > 1)
+
+            //Walk-distance check. Rabfist is momenteel de bot/AI
+            if (this.character.getPosition.X < otherPlayer.character.getPosition.X)
+            {
+                double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
+                if (DistanceCheck < -100)
+                {
+                    this.character.walkRight();
+                }
+            }
+            else if (this.character.getPosition.X > otherPlayer.character.getPosition.X)
+            {
+                double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
+                if (DistanceCheck > 100)
+                {
+                    this.character.walkLeft();
+                }
+            }
+            else if (this.character.getPosition.Y < otherPlayer.character.getPosition.Y)
+            {
+                this.character.jump();
+            }
+
+            if (DateTime.Now.Subtract(previoustick).TotalMilliseconds > 600)
             {
                 Random rnd = new Random();
                 int num = rnd.Next(3);
-
-                //Walk-distance check. Rabfist is momenteel de bot/AI
-                if (this.character.getPosition.X < otherPlayer.character.getPosition.X)
-                {
-                    double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
-                    if (DistanceCheck > 100)
-                    {
-                        this.character.walkRight();
-                    }
-                }
-                else if (this.character.getPosition.X > otherPlayer.character.getPosition.X)
-                {
-                    double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
-                    if (DistanceCheck > 100)
-                    {
-                        this.character.walkLeft();
-                    }
-                }
-                else if (this.character.getPosition.Y < otherPlayer.character.getPosition.Y)
-                {
-                    this.character.jump();
-                }
 
                 //Attack check and distance check.
                 if (this.character.getPosition.X < otherPlayer.character.getPosition.X)
