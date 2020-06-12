@@ -15,10 +15,11 @@ namespace DeathSmashBros.Engine.Players
         {
         }
 
+        DateTime previoustick = DateTime.Now;
         public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
             base.Update(otherPlayer, gameTime, scene);
-            if (gameTime.TotalGameTime.TotalMilliseconds % 600 == 0)
+            if (DateTime.Now.Subtract(previoustick).TotalMilliseconds > 1)
             {
                 Random rnd = new Random();
                 int num = rnd.Next(3);
@@ -29,7 +30,7 @@ namespace DeathSmashBros.Engine.Players
                     double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck > 100)
                     {
-                        this.character.walkLeft();
+                        this.character.walkRight();
                     }
                 }
                 else if (this.character.getPosition.X > otherPlayer.character.getPosition.X)
@@ -37,7 +38,7 @@ namespace DeathSmashBros.Engine.Players
                     double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck > 100)
                     {
-                        this.character.walkRight();
+                        this.character.walkLeft();
                     }
                 }
                 else if (this.character.getPosition.Y < otherPlayer.character.getPosition.Y)
@@ -84,6 +85,7 @@ namespace DeathSmashBros.Engine.Players
                         this.character.jumpAttack();
                     }
                 }
+                previoustick = DateTime.Now;
             }
         }
     }

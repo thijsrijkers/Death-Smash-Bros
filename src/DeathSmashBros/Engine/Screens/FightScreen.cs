@@ -31,9 +31,10 @@ namespace DeathSmashBros.Engine.Screens
             base.LoadContent(data);
 
             // TODO characters meenemen van ScreenData
-            PlayerOne = new HumanPlayer(new Voidking());
+            PlayerOne = new HumanPlayer(GetNewCharacter(data.SelectedCharacter));
             PlayerOne.character.setPosition(new Vector2(200, 100));
-            PlayerTwo = new BotPlayer(new Voidking());
+            PlayerTwo = new BotPlayer(GetNewCharacter(data.SelectedBotCharacter));
+            PlayerTwo.character.setPosition(new Vector2(500, 100));
 
             this.currentScene = sceneManager.GetScene(screenData.SelectedStage);
 
@@ -42,8 +43,13 @@ namespace DeathSmashBros.Engine.Screens
             Image background = new Image(currentScene.stageBackground, new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
             Image stage = new Image(currentScene.stage, new Vector2(0,0), new Vector2(bgWidth, bgHeight));
 
+            Image playerOneFrame = new Image(Loader.getTexture($"frames/{data.SelectedCharacter}_player"), new Vector2(100, 325), new Vector2(250, 200));
+            Image playerTwoFrame = new Image(Loader.getTexture($"frames/{data.SelectedCharacter}_enemy"), new Vector2(450, 325), new Vector2(250, 200));
+
             drawables.Add(background);
             drawables.Add(stage);
+            drawables.Add(playerOneFrame);
+            drawables.Add(playerTwoFrame);
         }
 
         // PlayerTwo tijdelijk uitgecomment om eerst te focusen op de human player
@@ -52,14 +58,28 @@ namespace DeathSmashBros.Engine.Screens
             base.Update(gameTime);
 
             this.PlayerOne.Update(PlayerTwo, gameTime, currentScene);
-            //this.PlayerTwo.Update(PlayerOne, gameTime);
+            this.PlayerTwo.Update(PlayerOne, gameTime, currentScene);
         }
 
         public override void Draw(SpriteBatch spritebatch)
         {
             base.Draw(spritebatch);
             PlayerOne.Draw(spritebatch);
-            //PlayerTwo.Draw(spritebatch);
+            PlayerTwo.Draw(spritebatch);
+        }
+
+        public Character GetNewCharacter(string name)
+        {
+            switch(name)
+            {
+                default:
+                case "voidking":
+                    return new Voidking();
+                case "wraith":
+                    return new Wraith();
+                case "rabfist":
+                    return new Rabfist();
+            }
         }
     }
 }

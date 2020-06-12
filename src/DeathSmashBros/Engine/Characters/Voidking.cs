@@ -28,7 +28,6 @@ namespace DeathSmashBros.Engine.Characters
             // walkleft
             // walkright
 
-            // TODO de juiste animations
             this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
             this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/regularattack/regularattack", 12));
             this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/specialattack/specialattack", 10));
