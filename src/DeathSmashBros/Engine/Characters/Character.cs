@@ -24,7 +24,7 @@ namespace DeathSmashBros.Engine
         public int width;
         public int height;
 
-        private Dictionary<string, Animation> animations;
+        protected Dictionary<string, Animation> animations;
         private string currentAnimation = "idle";
 
         public Character()
@@ -67,7 +67,7 @@ namespace DeathSmashBros.Engine
             }
         }
 
-        // virtual base methods voor animations
+        // virtual base methods voor animations en common actions
         public virtual void regularAttack()
         {
             this.currentAnimation = "attack";

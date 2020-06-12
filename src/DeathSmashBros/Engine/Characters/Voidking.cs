@@ -15,6 +15,24 @@ namespace DeathSmashBros.Engine.Characters
             this.gravity = 5;
             this.power = 3;
             this.speed = 2;
+
+            // inladen animations
+            // idle
+            // attack
+            // specialattack
+            // jumpattack
+            // jump
+            // walkleft
+            // walkright
+
+            // TODO de juiste animations
+            this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
+            this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
+            this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
+            this.animations.Add("jumpattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
+            this.animations.Add("jump", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
+            this.animations.Add("walkleft", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
+            this.animations.Add("walkright", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
         }
 
         public override void Update(GameTime gametime)

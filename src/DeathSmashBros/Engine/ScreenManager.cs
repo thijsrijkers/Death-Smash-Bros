@@ -42,9 +42,9 @@ namespace DeathSmashBros.Engine
             screens.First(x => x.name == current).LoadContent(data);
         }
         
-        public void UpdateScreen()
+        public void UpdateScreen(GameTime gameTime)
         {
-            screens.First(x => x.name == current).Update();
+            screens.First(x => x.name == current).Update(gameTime);
         }
 
         public void DrawScreen(SpriteBatch spriteBatch)

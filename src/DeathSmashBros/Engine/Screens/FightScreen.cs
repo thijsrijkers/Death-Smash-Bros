@@ -1,4 +1,6 @@
-﻿using DeathSmashBros.Engine.Drawables;
+﻿using DeathSmashBros.Engine.Characters;
+using DeathSmashBros.Engine.Drawables;
+using DeathSmashBros.Engine.Players;
 using DeathSmashBros.Engine.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,6 +17,8 @@ namespace DeathSmashBros.Engine.Screens
         private Rectangle stageHitbox;
         private SceneManager sceneManager;
         private Scene currentScene;
+        private Player PlayerOne;
+        private Player PlayerTwo;
 
         public FightScreen(ScreenManager _screenManager, SceneManager _sceneManager) : base(_screenManager)
         {
@@ -26,6 +30,10 @@ namespace DeathSmashBros.Engine.Screens
         {
             base.LoadContent(data);
 
+            // TODO characters meenemen van ScreenData
+            PlayerOne = new HumanPlayer(new Voidking());
+            PlayerTwo = new BotPlayer(new Voidking());
+
             this.currentScene = sceneManager.GetScene(screenData.SelectedStage);
 
             int bgHeight = MainGame.RENDER_HEIGHT;
@@ -35,6 +43,22 @@ namespace DeathSmashBros.Engine.Screens
 
             drawables.Add(background);
             drawables.Add(stage);
+        }
+
+        // PlayerTwo tijdelijk uitgecomment om eerst te focusen op de human player
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+            this.PlayerOne.Update(PlayerTwo, gameTime);
+            //this.PlayerTwo.Update(PlayerOne, gameTime);
+        }
+
+        public override void Draw(SpriteBatch spritebatch)
+        {
+            base.Draw(spritebatch);
+            PlayerOne.Draw(spritebatch);
+            //PlayerTwo.Draw(spritebatch);
         }
     }
 }

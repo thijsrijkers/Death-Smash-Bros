@@ -97,7 +97,7 @@ namespace DeathSmashBros
             // misschien een mogelijkheid ergens deze waardes zonder statics door te voeren naar de desbetreffende classes?
 
 
-            screenManager.UpdateScreen();
+            screenManager.UpdateScreen(gameTime);
 
             //voidking_idle.Update(gameTime);
             base.Update(gameTime);

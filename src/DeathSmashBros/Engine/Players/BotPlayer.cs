@@ -10,8 +10,13 @@ namespace DeathSmashBros.Engine.Players
 {
     public class BotPlayer : Player
     {
+        public BotPlayer(Character character) : base(character)
+        {
+        }
+
         public override void Update(Player otherPlayer, GameTime gameTime)
         {
+            base.Update(otherPlayer, gameTime);
             if (gameTime.TotalGameTime.TotalMilliseconds % 600 == 0)
             {
                 Random rnd = new Random();

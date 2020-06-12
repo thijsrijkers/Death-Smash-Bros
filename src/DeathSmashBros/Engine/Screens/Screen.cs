@@ -1,4 +1,5 @@
 ﻿using DeathSmashBros.Engine.Drawables;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace DeathSmashBros.Engine
             return this.screenData;
         }
 
-        public virtual void Update()
+        public virtual void Update(GameTime gameTime)
         {
             for(int i = 0; i < drawables.Count; i++)
             {

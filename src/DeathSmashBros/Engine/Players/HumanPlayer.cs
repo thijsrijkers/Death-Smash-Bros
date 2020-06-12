@@ -10,8 +10,13 @@ namespace DeathSmashBros.Engine.Players
 {
     public class HumanPlayer : Player
     {
+        public HumanPlayer(Character character) : base(character)
+        {
+        }
+
         public override void Update(Player otherPlayer, GameTime gameTime)
         {
+            base.Update(otherPlayer, gameTime);
             var keyboardState = Keyboard.GetState();
 
             if(keyboardState.IsKeyDown(Keys.W))

@@ -22,6 +22,16 @@ namespace DeathSmashBros.Engine
             this.currentFrame = 0;
         }
 
+        public Animation(TimeSpan animationTime, string texturename, int framecount)
+        {
+            this.animationTime = animationTime;
+            this.frames = new List<Texture2D>();
+            for (int i = 1; i < framecount; i++)
+            {
+                this.frames.Add(Loader.getTexture($"{texturename}{i}"));
+            }
+        }
+
         public void Update(GameTime gameTime)
         {
             if (this.frames.Count > 0)
