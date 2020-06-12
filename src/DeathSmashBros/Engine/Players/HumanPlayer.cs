@@ -17,29 +17,31 @@ namespace DeathSmashBros.Engine.Players
             if(keyboardState.IsKeyDown(Keys.W))
             {
                 //FIRE!!!
-            }else if (keyboardState.IsKeyDown(Keys.A))
+                this.character.jumpAttack();
+            }
+            else if (keyboardState.IsKeyDown(Keys.A))
             {
-
+                this.character.walkLeft();
             }
             else if (keyboardState.IsKeyDown(Keys.S))
             {
-
+                // doot doot
             }
             else if (keyboardState.IsKeyDown(Keys.D))
             {
-
+                this.character.walkRight();
             }
             else if (keyboardState.IsKeyDown(Keys.Q))
             {
-
+                this.character.regularAttack();
             }
             else if (keyboardState.IsKeyDown(Keys.Space))
             {
-
+                this.character.jump();
             }
             else if (keyboardState.IsKeyDown(Keys.E))
             {
-
+                this.character.specialAttack();
             }
         }
     }
