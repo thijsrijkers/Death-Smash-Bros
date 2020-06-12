@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine.Scenes;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace DeathSmashBros.Engine
             this.character = character;
         }
 
-        public virtual void Update(Player otherPlayer, GameTime gameTime)
+        public virtual void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
-            this.character.Update(gameTime);
+            this.character.Update(gameTime, scene);
         }
 
         public void Draw(SpriteBatch spriteBatch)

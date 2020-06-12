@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine.Scenes;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace DeathSmashBros.Engine.Players
         {
         }
 
-        public override void Update(Player otherPlayer, GameTime gameTime)
+        public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
-            base.Update(otherPlayer, gameTime);
+            base.Update(otherPlayer, gameTime, scene);
             if (gameTime.TotalGameTime.TotalMilliseconds % 600 == 0)
             {
                 Random rnd = new Random();

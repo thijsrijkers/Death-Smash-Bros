@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine.Scenes;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace DeathSmashBros.Engine.Players
         {
         }
 
-        public override void Update(Player otherPlayer, GameTime gameTime)
+        public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
-            base.Update(otherPlayer, gameTime);
+            base.Update(otherPlayer, gameTime, scene);
             var keyboardState = Keyboard.GetState();
 
             if(keyboardState.IsKeyDown(Keys.W))

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine.Scenes;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace DeathSmashBros.Engine.Characters
             this.speed = 5;
         }
 
-        public override void Update(GameTime gametime)
+        public override void Update(GameTime gametime, Scene scene)
         {
-            base.Update(gametime);
+            base.Update(gametime, scene);
         }
 
         public override void Draw(SpriteBatch sb)

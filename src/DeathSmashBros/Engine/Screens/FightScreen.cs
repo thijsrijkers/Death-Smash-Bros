@@ -51,7 +51,7 @@ namespace DeathSmashBros.Engine.Screens
         {
             base.Update(gameTime);
 
-            this.PlayerOne.Update(PlayerTwo, gameTime);
+            this.PlayerOne.Update(PlayerTwo, gameTime, currentScene);
             //this.PlayerTwo.Update(PlayerOne, gameTime);
         }
 

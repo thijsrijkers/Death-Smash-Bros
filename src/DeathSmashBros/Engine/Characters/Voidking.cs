@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DeathSmashBros.Engine.Scenes;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -29,17 +30,17 @@ namespace DeathSmashBros.Engine.Characters
 
             // TODO de juiste animations
             this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
-            this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
-            this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
-            this.animations.Add("jumpattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
-            this.animations.Add("jump", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
-            this.animations.Add("walkleft", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
-            this.animations.Add("walkright", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
+            this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/regularattack/regularattack", 12));
+            this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/specialattack/specialattack", 10));
+            this.animations.Add("jumpattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/jumpattack/jumpattack", 10));
+            this.animations.Add("jump", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/jump/jump", 8));
+            this.animations.Add("walkleft", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/sprintleft/sprintleft", 4));
+            this.animations.Add("walkright", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/sprintright/sprintright", 4));
         }
 
-        public override void Update(GameTime gametime)
+        public override void Update(GameTime gametime, Scene scene)
         {
-            base.Update(gametime);
+            base.Update(gametime, scene);
         }
 
         public override void Draw(SpriteBatch sb)

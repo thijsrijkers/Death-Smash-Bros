@@ -1,4 +1,5 @@
 ﻿using DeathSmashBros.Engine.Characters;
+using DeathSmashBros.Engine.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -67,10 +68,13 @@ namespace DeathSmashBros.Engine
             offset.X = ((scale.X / tex.Width) * renderOffset.X);
             offset.Y = ((scale.Y / tex.Height) * renderOffset.Y);
 
+            this.Hitbox.Width = (int)(this.scale.X - (offset.X * 2));
+            this.Hitbox.Height = (int)(this.scale.Y - (offset.Y * 2));
+
             this.animations[currentAnimation].Draw(spriteBatch, new Vector2(Hitbox.X, Hitbox.Y) - offset, this.scale);
         }
 
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime, Scene scene)
         {
             this.animations[currentAnimation].Update(gameTime);
 
@@ -78,6 +82,11 @@ namespace DeathSmashBros.Engine
             {
                 this.animations[currentAnimation].AnimationEnded = false;
                 this.currentAnimation = "idle";
+            }
+
+            if (this.Hitbox.Y < scene.hitboxes.First().Y - this.Hitbox.Height)
+            {
+                this.Hitbox.Y += gravity;
             }
         }
 
@@ -89,7 +98,7 @@ namespace DeathSmashBros.Engine
 
         public virtual void specialAttack()
         {
-            this.currentAnimation = "special";
+            this.currentAnimation = "specialattack";
         }
 
         public virtual void jumpAttack()
