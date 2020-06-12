@@ -63,7 +63,7 @@ namespace DeathSmashBros.Engine.Screens
         private void Character_Click(Button button)
         {
             screenData.SelectedCharacter = button.name;
-            // TODO: naar scene select navigeren en de naam van de character meegeven
+            // TODO: enemy character randomizen
             screenManager.ChangeScreen("fight");
         }
     }
