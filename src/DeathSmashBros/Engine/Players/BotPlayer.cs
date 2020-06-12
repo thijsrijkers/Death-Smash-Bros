@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,9 @@ namespace DeathSmashBros.Engine.Players
 {
     public class BotPlayer : Player
     {
-
-        public override void Update(Player otherPlayer)
+        public override void Update(Player otherPlayer, GameTime gameTime)
         {
-             
-            while (true)
+            if (gameTime.TotalGameTime.TotalMilliseconds % 600 == 0)
             {
                 Random rnd = new Random();
                 int num = rnd.Next(3);
@@ -27,7 +26,7 @@ namespace DeathSmashBros.Engine.Players
                         this.character.walkLeft();
                     }
                 }
-                else if(this.character.getPosition.X > otherPlayer.character.getPosition.X)
+                else if (this.character.getPosition.X > otherPlayer.character.getPosition.X)
                 {
                     double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck > 100)
@@ -46,7 +45,7 @@ namespace DeathSmashBros.Engine.Players
                     double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck <= 100)
                     {
-                        if(num != 1)
+                        if (num != 1)
                         {
                             this.character.specialAttack();
                         }
@@ -79,10 +78,6 @@ namespace DeathSmashBros.Engine.Players
                         this.character.jumpAttack();
                     }
                 }
-
-                //The tread timer.
-                Thread.Sleep(600);
-                // TODO andere oplossing
             }
         }
     }

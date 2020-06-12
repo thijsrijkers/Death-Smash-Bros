@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace DeathSmashBros.Engine.Players
 {
     public class HumanPlayer : Player
     {
-        public override void Update(Player otherPlayer)
+        public override void Update(Player otherPlayer, GameTime gameTime)
         {
             var keyboardState = Keyboard.GetState();
 

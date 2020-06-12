@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,6 @@ namespace DeathSmashBros.Engine
     {
         public Character character;
 
-        public abstract void Update(Player otherPlayer);
+        public abstract void Update(Player otherPlayer, GameTime gameTime);
     }
 }
