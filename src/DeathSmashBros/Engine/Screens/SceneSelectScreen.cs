@@ -24,26 +24,31 @@ namespace DeathSmashBros.Engine.Screens
             Image background = new Image(Loader.getTexture("backgroundCharacterWorldMenu"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
             drawables.Add(background);
 
-            int minX = 150;
-            int maxX = 600;
-            int minY = 100;
-            int maxY = 400;
-            int x = minX;
-            int y = minY;
+            //int minX = 150;
+            //int maxX = 600;
+            //int minY = 100;
+            //int maxY = 400;
+            //int x = minX;
+            //int y = minY;
 
-            while (y <= maxY)
-            {
-                while (x <= maxX)
-                {
-                    Button stageItem = new Button("cloud", Loader.getTexture("CloudStageButton"), new Vector2(x, y), new Vector2(200, 100));
-                    stageItem.click += Stage_click;
-                    drawables.Add(stageItem);
+            Button stageItem = new Button("cloud", Loader.getTexture("CloudStageButton"), new Vector2(150, 100), new Vector2(200, 100));
+            stageItem.click += Stage_click;
+            drawables.Add(stageItem);
+            Button stageItem2 = new Button("grassland", Loader.getTexture("GrasslandButton"), new Vector2(465, 100), new Vector2(200, 100));
+            stageItem2.click += Stage_click;
+            drawables.Add(stageItem2);
 
-                    x += 315;
-                }
-                x = minX;
-                y += 375;
-            }
+            //while (y <= maxY)
+            //{
+            //    while (x <= maxX)
+            //    {
+                    
+
+            //        x += 315;
+            //    }
+            //    x = minX;
+            //    y += 375;
+            //}
 
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
             back.click += Back_click;

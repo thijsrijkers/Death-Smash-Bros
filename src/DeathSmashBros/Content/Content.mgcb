@@ -812,6 +812,18 @@
 /processorParam:TextureFormat=Compressed
 /build:debugtext.spritefont
 
+#begin GrasslandButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:GrasslandButton.png
+
 #begin homescreen-background.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -919,6 +931,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:stages/CloudStageStage.png
+
+#begin stages/GrasslandBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:stages/GrasslandBackground.png
+
+#begin stages/GrasslandStage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:stages/GrasslandStage.png
 
 #begin voidking_player.png
 /importer:TextureImporter

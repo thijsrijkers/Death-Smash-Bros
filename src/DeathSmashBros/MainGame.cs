@@ -48,6 +48,7 @@ namespace DeathSmashBros
             debugFont = Content.Load<SpriteFont>("debugtext");
             sceneManager = new SceneManager();
             sceneManager.RegisterScene(new CloudStage());
+            sceneManager.RegisterScene(new GrasslandStage());
 
             // Generate screens
             screenManager = new ScreenManager();

@@ -56,6 +56,7 @@
     <Compile Include="Engine\Players\HumanPlayer.cs" />
     <Compile Include="Engine\Players\Player.cs" />
     <Compile Include="Engine\SceneManager.cs" />
+    <Compile Include="Engine\Scenes\GrasslandStage.cs" />
     <Compile Include="Engine\Scenes\Scene.cs" />
     <Compile Include="Engine\Scenes\CloudStage.cs" />
     <Compile Include="Engine\ScreenData.cs" />
