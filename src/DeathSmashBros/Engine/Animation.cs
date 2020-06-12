@@ -47,9 +47,10 @@ namespace DeathSmashBros.Engine
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 postion, Vector2 size)
+        public void Draw(SpriteBatch spriteBatch, Vector2 postion, Vector2 size, bool mirrored = false)
         {
-            spriteBatch.Draw(frames[currentFrame], new Rectangle(postion.ToPoint(), size.ToPoint()), Color.White);
+            spriteBatch.Draw(frames[currentFrame], destinationRectangle: new Rectangle(postion.ToPoint(), size.ToPoint()),
+                color: Color.White, effects: mirrored? SpriteEffects.None : SpriteEffects.FlipHorizontally);
         }
     }
 }

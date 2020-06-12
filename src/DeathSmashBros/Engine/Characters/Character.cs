@@ -29,6 +29,7 @@ namespace DeathSmashBros.Engine
         protected Vector2 scale;
         protected Vector2 renderOffset;
         private string currentAnimation = "idle";
+        private bool looksRight = true;
 
         public Character()
         {
@@ -71,7 +72,7 @@ namespace DeathSmashBros.Engine
             this.Hitbox.Width = (int)(this.scale.X - (offset.X * 2));
             this.Hitbox.Height = (int)(this.scale.Y - (offset.Y * 2));
 
-            this.animations[currentAnimation].Draw(spriteBatch, new Vector2(Hitbox.X, Hitbox.Y) - offset, this.scale);
+            this.animations[currentAnimation].Draw(spriteBatch, new Vector2(Hitbox.X, Hitbox.Y) - offset, this.scale, this.looksRight);
         }
 
         public virtual void Update(GameTime gameTime, Scene scene)
@@ -113,12 +114,16 @@ namespace DeathSmashBros.Engine
 
         public virtual void walkLeft()
         {
-            this.currentAnimation = "walkleft";
+            this.currentAnimation = "walkright";
+            this.Hitbox.X -= this.speed;
+            this.looksRight = false;
         }
 
         public virtual void walkRight()
         {
             this.currentAnimation = "walkright";
+            this.Hitbox.X += this.speed;
+            looksRight = true;
         }
 
     }
