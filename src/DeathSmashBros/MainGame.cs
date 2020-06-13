@@ -99,7 +99,7 @@ namespace DeathSmashBros
             GraphicsDevice.SetRenderTarget(null);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             spriteBatch.Draw(renderTarget, new Rectangle(0,0,Window.ClientBounds.Width, Window.ClientBounds.Height), Color.White);
-            spriteBatch.DrawString(debugFont, $"mouse x {MousePositions.X} mouse y {MousePositions.Y}", Vector2.Zero, Color.White);
+            //spriteBatch.DrawString(debugFont, $"mouse x {MousePositions.X} mouse y {MousePositions.Y}", Vector2.Zero, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

@@ -19,11 +19,13 @@ namespace DeathSmashBros.Engine.Screens
         private Scene currentScene;
         private Player PlayerOne;
         private Player PlayerTwo;
+        private GameTimer gameTimer;
 
         public FightScreen(ScreenManager _screenManager, SceneManager _sceneManager) : base(_screenManager)
         {
             name = "fight";
             this.sceneManager = _sceneManager;
+            this.gameTimer = new GameTimer();
         }
 
         public override void LoadContent(ScreenData data)
@@ -59,6 +61,13 @@ namespace DeathSmashBros.Engine.Screens
 
             this.PlayerOne.Update(PlayerTwo, gameTime, currentScene);
             this.PlayerTwo.Update(PlayerOne, gameTime, currentScene);
+            this.gameTimer.Update(gameTime);
+
+            // End the fight when the time is up
+            if(gameTimer.timeSpan < TimeSpan.Zero)
+            {
+                this.screenManager.ChangeScreen("end");
+            }
         }
 
         public override void Draw(SpriteBatch spritebatch)
@@ -66,6 +75,7 @@ namespace DeathSmashBros.Engine.Screens
             base.Draw(spritebatch);
             PlayerOne.Draw(spritebatch);
             PlayerTwo.Draw(spritebatch);
+            gameTimer.Draw(spritebatch);
         }
 
         public Character GetNewCharacter(string name)
