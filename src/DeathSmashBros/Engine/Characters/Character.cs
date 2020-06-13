@@ -85,10 +85,19 @@ namespace DeathSmashBros.Engine
                 this.currentAnimation = "idle";
             }
 
+            // Make sure the character can stand on the stage of the scene
             if (this.Hitbox.Y < scene.hitboxes.First().Y - this.Hitbox.Height)
             {
                 this.Hitbox.Y += gravity;
             }
+
+            if(this.Hitbox.X < scene.hitboxes.First().X - this.Hitbox.Width || 
+                this.Hitbox.X > scene.hitboxes.First().Width)
+            {
+                this.Hitbox.Y += gravity;
+            }
+
+            
         }
 
         // virtual base methods voor animations en common actions
