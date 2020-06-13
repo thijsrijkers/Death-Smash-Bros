@@ -24,6 +24,11 @@ namespace DeathSmashBros.Engine
             return game.Content.Load<Texture2D>(path);
         }
 
+        public static SpriteFont getFont(string path)
+        {
+            return game.Content.Load<SpriteFont>(path);
+        }
+
         public static void Exit()
         {
             game.Exit();

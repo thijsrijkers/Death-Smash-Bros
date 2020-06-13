@@ -67,6 +67,7 @@
     <Compile Include="Engine\Screens\SceneSelectScreen.cs" />
     <Compile Include="Engine\Screens\Screen.cs" />
     <Compile Include="Engine\ScreenManager.cs" />
+    <Compile Include="Engine\GameTimer.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="player\character.cs" />
     <Compile Include="Program.cs" />
