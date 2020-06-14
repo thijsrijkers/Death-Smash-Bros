@@ -15,12 +15,13 @@ namespace DeathSmashBros.Engine
         // TODO positions
 
         public Rectangle Hitbox;
+        public Scene scene;
 
         public int gravity;
         public int power;
         public int speed;
         public double damageTaken = 0.0;
-        public int stocksLef = 3;
+        public int stocksLeft = 3;
 
         public int width;
         public int height;
@@ -79,6 +80,8 @@ namespace DeathSmashBros.Engine
         {
             this.animations[currentAnimation].Update(gameTime);
 
+            this.scene = scene;
+
             if(this.animations[currentAnimation].AnimationEnded)
             {
                 this.animations[currentAnimation].AnimationEnded = false;
@@ -91,8 +94,9 @@ namespace DeathSmashBros.Engine
                 this.Hitbox.Y += gravity;
             }
 
-            if(this.Hitbox.X < scene.hitboxes.First().X - this.Hitbox.Width || 
-                this.Hitbox.X > scene.hitboxes.First().Width)
+            //Make sure the character falls of the stage
+            if(this.Hitbox.X - 2 < scene.hitboxes.First().X - this.Hitbox.Width || 
+                this.Hitbox.X + 2 > scene.hitboxes.First().Width)
             {
                 this.Hitbox.Y += gravity;
             }
@@ -130,9 +134,21 @@ namespace DeathSmashBros.Engine
 
         public virtual void walkRight()
         {
-            this.currentAnimation = "walkright";
-            this.Hitbox.X += this.speed;
-            looksRight = true;
+            if(this.Hitbox.Y - 2 < scene.hitboxes.First().Y - this.Hitbox.Height)
+            {             
+                this.currentAnimation = "walkright";
+                this.Hitbox.X += this.speed;
+                looksRight = true;           
+            }
+            else
+            {
+                if(this.Hitbox.X < scene.hitboxes.First().X - this.Hitbox.Width)
+                {
+                    this.currentAnimation = "walkright";
+                    this.Hitbox.X += this.speed;
+                    looksRight = true;
+                }                
+            }
         }
 
     }
