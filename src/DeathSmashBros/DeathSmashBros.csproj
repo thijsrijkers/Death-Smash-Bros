@@ -52,6 +52,7 @@
     <Compile Include="Engine\Drawables\Drawable.cs" />
     <Compile Include="Engine\Drawables\Image.cs" />
     <Compile Include="Engine\Loader.cs" />
+    <Compile Include="Engine\PlayerDamage.cs" />
     <Compile Include="Engine\Players\BotPlayer.cs" />
     <Compile Include="Engine\Players\HumanPlayer.cs" />
     <Compile Include="Engine\Players\Player.cs" />

@@ -24,11 +24,14 @@ namespace DeathSmashBros.Engine.Screens
         private List<Image> stocksPlayerOne;
         private List<Image> stocksPlayerTwo;
 
+        private PlayerDamage playerDamage;
+
         public FightScreen(ScreenManager _screenManager, SceneManager _sceneManager) : base(_screenManager)
         {
             name = "fight";
             this.sceneManager = _sceneManager;
             this.gameTimer = new GameTimer();
+            this.playerDamage = new PlayerDamage();
         }
 
         public override void LoadContent(ScreenData data)
@@ -54,6 +57,7 @@ namespace DeathSmashBros.Engine.Screens
             stocksPlayerOne = new List<Image>();
             stocksPlayerTwo = new List<Image>();
 
+
             getStocks();
 
             
@@ -72,6 +76,7 @@ namespace DeathSmashBros.Engine.Screens
             this.PlayerOne.Update(PlayerTwo, gameTime, currentScene);
             this.PlayerTwo.Update(PlayerOne, gameTime, currentScene);
             this.gameTimer.Update(gameTime);
+            //this.playerDamage.Update(playerDamage);
 
             // End the fight when the time is up
             if(gameTimer.timeSpan < TimeSpan.Zero)
@@ -86,6 +91,7 @@ namespace DeathSmashBros.Engine.Screens
             PlayerOne.Draw(spritebatch);
             PlayerTwo.Draw(spritebatch);
             gameTimer.Draw(spritebatch);
+            playerDamage.Draw(spritebatch);
         }
 
         public Character GetNewCharacter(string name)
@@ -135,5 +141,6 @@ namespace DeathSmashBros.Engine.Screens
                 drawables.Add(stock);
             }
         }
+
     }
 }
