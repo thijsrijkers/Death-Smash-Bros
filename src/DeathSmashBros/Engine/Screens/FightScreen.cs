@@ -54,12 +54,12 @@ namespace DeathSmashBros.Engine.Screens
             stocksPlayerOne = new List<Image>();
             stocksPlayerTwo = new List<Image>();
 
-            
+            getStocks();
 
             
             drawables.Add(background);
             drawables.Add(stage);
-            showStocks();
+            drawStocks();
             drawables.Add(playerOneFrame);
             drawables.Add(playerTwoFrame);
         }
@@ -102,7 +102,7 @@ namespace DeathSmashBros.Engine.Screens
             }
         }
 
-        public void showStocks()
+        public void getStocks()
         { 
             stocksPlayerOne.Clear();
             stocksPlayerTwo.Clear();
@@ -123,7 +123,9 @@ namespace DeathSmashBros.Engine.Screens
                 stocksPlayerTwo.Add(stock);
                 x += 40;
             }
-
+        }
+        public void drawStocks()
+		{
             foreach (Image stock in stocksPlayerOne)
             {
                 drawables.Add(stock);
@@ -132,7 +134,6 @@ namespace DeathSmashBros.Engine.Screens
             {
                 drawables.Add(stock);
             }
-
         }
     }
 }
