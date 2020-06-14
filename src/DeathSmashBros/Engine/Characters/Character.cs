@@ -62,6 +62,11 @@ namespace DeathSmashBros.Engine
             this.Hitbox.Y = (int)pos.Y;
         }
 
+        public int getStocks()
+		{
+            return stocksLeft;
+		}
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             var offset = new Vector2();

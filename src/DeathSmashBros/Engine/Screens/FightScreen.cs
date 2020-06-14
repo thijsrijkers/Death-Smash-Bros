@@ -5,6 +5,7 @@ using DeathSmashBros.Engine.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace DeathSmashBros.Engine.Screens
         private Player PlayerOne;
         private Player PlayerTwo;
         private GameTimer gameTimer;
+        private List<Image> stocksPlayerOne;
+        private List<Image> stocksPlayerTwo;
 
         public FightScreen(ScreenManager _screenManager, SceneManager _sceneManager) : base(_screenManager)
         {
@@ -48,8 +51,15 @@ namespace DeathSmashBros.Engine.Screens
             Image playerOneFrame = new Image(Loader.getTexture($"frames/{data.SelectedCharacter}_player"), new Vector2(100, 325), new Vector2(250, 200));
             Image playerTwoFrame = new Image(Loader.getTexture($"frames/{data.SelectedCharacter}_enemy"), new Vector2(450, 325), new Vector2(250, 200));
 
+            stocksPlayerOne = new List<Image>();
+            stocksPlayerTwo = new List<Image>();
+
+            
+
+            
             drawables.Add(background);
             drawables.Add(stage);
+            showStocks();
             drawables.Add(playerOneFrame);
             drawables.Add(playerTwoFrame);
         }
@@ -90,6 +100,39 @@ namespace DeathSmashBros.Engine.Screens
                 case "rabfist":
                     return new Rabfist();
             }
+        }
+
+        public void showStocks()
+        { 
+            stocksPlayerOne.Clear();
+            stocksPlayerTwo.Clear();
+            int x = 20;
+            int y = 405;
+            
+            for (int i =0; i < PlayerOne.character.stocksLeft; i++)
+			{
+                Image stock = new Image(Loader.getTexture("stock"), new Vector2(x, y), new Vector2(30, 30));
+                stocksPlayerOne.Add(stock);
+                x += 40;
+            }
+            x = 660;
+            
+            for (int i = 0; i < PlayerTwo.character.stocksLeft; i++)
+            {
+                Image stock = new Image(Loader.getTexture("stock"), new Vector2(x, y), new Vector2(30, 30));
+                stocksPlayerTwo.Add(stock);
+                x += 40;
+            }
+
+            foreach (Image stock in stocksPlayerOne)
+            {
+                drawables.Add(stock);
+            }
+            foreach (Image stock in stocksPlayerTwo)
+            {
+                drawables.Add(stock);
+            }
+
         }
     }
 }
