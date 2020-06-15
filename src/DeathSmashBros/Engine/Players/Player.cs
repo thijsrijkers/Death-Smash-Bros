@@ -21,6 +21,12 @@ namespace DeathSmashBros.Engine
         public virtual void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
             this.character.Update(gameTime, scene);
+
+            if(this.character.Hitbox.Intersects(otherPlayer.character.AttackHitbox))
+            {
+                this.character.damageTaken += 15; // TODO: ((thidelijk hardcoded?))
+                otherPlayer.character.AttackHitbox = new Rectangle(0, 0, 0, 0); // attack hit, weg met hitbox
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

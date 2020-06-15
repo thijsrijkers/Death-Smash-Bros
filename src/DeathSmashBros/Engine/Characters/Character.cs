@@ -26,6 +26,9 @@ namespace DeathSmashBros.Engine
         public int width;
         public int height;
 
+        public Rectangle AttackHitbox;
+        public DateTime AttackTime;
+
         protected Dictionary<string, Animation> animations;
         protected Vector2 scale;
         protected Vector2 renderOffset;
@@ -83,6 +86,11 @@ namespace DeathSmashBros.Engine
 
         public virtual void Update(GameTime gameTime, Scene scene)
         {
+            if(DateTime.Now.Subtract(this.AttackTime).TotalMilliseconds > 500)
+            {
+                this.AttackHitbox = new Rectangle(0, 0, 0, 0); // tijd sinds attack is meer dan 500ms dus hitbox is zero
+            }
+
             this.animations[currentAnimation].Update(gameTime);
 
             this.scene = scene;
@@ -106,21 +114,64 @@ namespace DeathSmashBros.Engine
                 this.Hitbox.Y += gravity;
             }        
         }
-
+        
+        // TODO andere hitboxes, attack cooldown
         // virtual base methods voor animations en common actions
         public virtual void regularAttack()
         {
             this.currentAnimation = "attack";
+            this.AttackTime = DateTime.Now;
+            // hitbox spawnen naast character
+            if(this.looksRight)
+            {
+                // hitbox rechts
+                this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
+                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+            }
+            else
+            {
+                // hitbox links
+                this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
+                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+            }
         }
 
         public virtual void specialAttack()
         {
             this.currentAnimation = "specialattack";
+            this.AttackTime = DateTime.Now;
+            // hitbox spawnen naast character
+            if (this.looksRight)
+            {
+                // hitbox rechts
+                this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
+                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+            }
+            else
+            {
+                // hitbox links
+                this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
+                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+            }
         }
 
         public virtual void jumpAttack()
         {
             this.currentAnimation = "jumpattack";
+            this.AttackTime = DateTime.Now;
+            // hitbox spawnen naast character
+            if (this.looksRight)
+            {
+                // hitbox rechts
+                this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
+                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+            }
+            else
+            {
+                // hitbox links
+                this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
+                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+            }
         }
 
         public virtual void jump()

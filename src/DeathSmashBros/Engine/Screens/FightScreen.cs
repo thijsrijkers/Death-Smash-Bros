@@ -83,6 +83,8 @@ namespace DeathSmashBros.Engine.Screens
             {
                 this.screenManager.ChangeScreen("end");
             }
+
+            playerDamage.Update(PlayerOne, PlayerTwo);
         }
 
         public override void Draw(SpriteBatch spritebatch)

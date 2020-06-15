@@ -21,16 +21,18 @@ namespace DeathSmashBros.Engine
             damagePlayerTwo = 0;
         }
 
-        public void Update(PlayerDamage playerDamage)
+        public void Update(Player playerone, Player playertwo)
         {
-        //    if (//if player one gets damage)
-        //    {
-        //        damagePlayerOne += 20;
-        //    }
-        //    else if (//if player two gets damage)
-        //    {
-        //        damagePlayerTwo += 20;
-        //    }
+            damagePlayerOne = (int)playerone.character.damageTaken;
+            damagePlayerTwo = (int)playertwo.character.damageTaken;
+            //    if (//if player one gets damage)
+            //    {
+            //        damagePlayerOne += 20;
+            //    }
+            //    else if (//if player two gets damage)
+            //    {
+            //        damagePlayerTwo += 20;
+            //    }
         }
 
         public void Draw(SpriteBatch spriteBatch)
