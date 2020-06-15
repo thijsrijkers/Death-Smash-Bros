@@ -25,6 +25,9 @@ namespace DeathSmashBros.Engine.Screens
             int bgHeight = MainGame.RENDER_HEIGHT;
             int bgWidth = MainGame.RENDER_WIDTH;
 
+            Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(70, 70));
+            back.click += Back_click;
+
             Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
             Image winnerSprite = new Image(Loader.getTexture("Characters/"+screenData.Winner+"/"+screenData.Winner), new Vector2(0, 0), new Vector2(400, bgHeight));
@@ -36,7 +39,12 @@ namespace DeathSmashBros.Engine.Screens
             drawables.Add(winnerSprite);
             drawables.Add(winnerFrame);
             drawables.Add(loserFrame);
+            drawables.Add(back);
+        }
 
+        private void Back_click(Button button)
+        {
+            screenManager.ChangeScreen("home");
         }
     }
 }

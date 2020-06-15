@@ -20,6 +20,9 @@ namespace DeathSmashBros.Engine
         public int gravity;
         public int power;
         public int speed;
+        public int jumpCount;
+        public int jumpMax;
+        public Boolean inAir;
         public double damageTaken = 0.0;
         public int stocksLeft = 3;
 
@@ -165,21 +168,21 @@ namespace DeathSmashBros.Engine
 
         public virtual void jumpAttack()
         {
-            this.currentAnimation = "jumpattack";
-            this.AttackTime = DateTime.Now;
-            // hitbox spawnen naast character
-            if (this.looksRight)
-            {
-                // hitbox rechts
-                this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
-                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
-            }
-            else
-            {
-                // hitbox links
-                this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
-                    this.Hitbox.Width / 2, this.Hitbox.Height / 2);
-            }
+                this.currentAnimation = "jumpattack";
+                this.AttackTime = DateTime.Now;
+                // hitbox spawnen naast character
+                if (this.looksRight)
+                {
+                    // hitbox rechts
+                    this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
+                        this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+                }
+                else
+                {
+                    // hitbox links
+                    this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
+                        this.Hitbox.Width / 2, this.Hitbox.Height / 2);
+                }
         }
 
         public virtual void jump()

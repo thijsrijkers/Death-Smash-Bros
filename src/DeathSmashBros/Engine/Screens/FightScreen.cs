@@ -128,22 +128,22 @@ namespace DeathSmashBros.Engine.Screens
         { 
             stocksPlayerOne.Clear();
             stocksPlayerTwo.Clear();
-            int x = 20;
+            int x = 70;
             int y = 405;
             
             for (int i =0; i < PlayerOne.character.stocksLeft; i++)
 			{
-                Image stock = new Image(Loader.getTexture("stock"), new Vector2(x, y), new Vector2(30, 30));
+                Image stock = new Image(Loader.getTexture("stock"), new Vector2(x, y), new Vector2(15, 15));
                 stocksPlayerOne.Add(stock);
-                x += 40;
+                x += 20;
             }
             x = 660;
             
             for (int i = 0; i < PlayerTwo.character.stocksLeft; i++)
             {
-                Image stock = new Image(Loader.getTexture("stock"), new Vector2(x, y), new Vector2(30, 30));
+                Image stock = new Image(Loader.getTexture("stock"), new Vector2(x, y), new Vector2(15, 15));
                 stocksPlayerTwo.Add(stock);
-                x += 40;
+                x += 20;
             }
         }
         public void drawStocks()

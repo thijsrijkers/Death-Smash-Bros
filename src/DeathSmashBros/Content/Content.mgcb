@@ -289,18 +289,6 @@
 /processorParam:TextureFormat=Color
 /build:characters/Rabfist/Rabfist.png
 
-#begin characters/Rabfist/Rabfist.psd
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:characters/Rabfist/Rabfist.psd
-
 #begin characters/Rabfist/RabfistAnimation.psd
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1237,18 +1225,6 @@
 /processorParam:TextureFormat=Color
 /build:characters/Voidking/Voidking.png
 
-#begin characters/Voidking/Voidking.psd
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:characters/Voidking/Voidking.psd
-
 #begin characters/Voidking/VoidkingAnimation.psd
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1776,18 +1752,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:characters/Wraith/Wraith.png
-
-#begin characters/Wraith/Wraith.psd
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:characters/Wraith/Wraith.psd
 
 #begin characters/Wraith/WraithAnimation.psd
 /importer:TextureImporter

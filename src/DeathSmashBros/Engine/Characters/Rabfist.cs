@@ -16,7 +16,8 @@ namespace DeathSmashBros.Engine.Characters
             this.gravity = 3;
             this.power = 1;
             this.speed = 5;
-
+            this.jumpCount = 1;
+            this.jumpMax = 1;
             this.scale = new Vector2(240, 240);
             this.renderOffset = new Vector2(400, 430);
 
