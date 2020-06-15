@@ -67,16 +67,17 @@ namespace DeathSmashBros.Engine.Screens
             int bot = rnd.Next(1, 4);
             if(bot == 1)
             {
-                screenData.SelectedBotCharacter = "Rabfist";
+                screenData.SelectedBotCharacter = "rabfist";
             }
             else if(bot == 2)
             {
-                screenData.SelectedBotCharacter = "Voidking";
+                screenData.SelectedBotCharacter = "voidking";
             }
             else
             {
-                screenData.SelectedBotCharacter = "Wraith";
+                screenData.SelectedBotCharacter = "wraith";
             }
+
             // TODO: enemy character randomizen
             screenManager.ChangeScreen("fight");
         }

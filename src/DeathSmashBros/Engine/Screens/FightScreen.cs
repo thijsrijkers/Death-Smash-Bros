@@ -112,7 +112,7 @@ namespace DeathSmashBros.Engine.Screens
 
         public Character GetNewCharacter(string name)
         {
-            switch(name)
+            switch(name.ToLower())
             {
                 default:
                 case "voidking":
