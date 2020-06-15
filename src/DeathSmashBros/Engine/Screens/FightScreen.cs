@@ -52,7 +52,7 @@ namespace DeathSmashBros.Engine.Screens
             Image stage = new Image(currentScene.stage, new Vector2(0,0), new Vector2(bgWidth, bgHeight));
 
             Image playerOneFrame = new Image(Loader.getTexture($"frames/{data.SelectedCharacter}_player"), new Vector2(100, 325), new Vector2(250, 200));
-            Image playerTwoFrame = new Image(Loader.getTexture($"frames/{data.SelectedCharacter}_enemy"), new Vector2(450, 325), new Vector2(250, 200));
+            Image playerTwoFrame = new Image(Loader.getTexture($"frames/{data.SelectedBotCharacter}_enemy"), new Vector2(450, 325), new Vector2(250, 200));
 
             stocksPlayerOne = new List<Image>();
             stocksPlayerTwo = new List<Image>();
@@ -86,6 +86,19 @@ namespace DeathSmashBros.Engine.Screens
 
             playerDamage.Update(PlayerOne, PlayerTwo);
             updateStocks();
+
+            if(PlayerOne.character.getStocks() < 1)
+            {
+                screenData.Loser = screenData.SelectedCharacter;
+                screenData.Winner = screenData.SelectedBotCharacter;
+                   this.screenManager.ChangeScreen("end");
+            }
+            else if(PlayerTwo.character.getStocks() < 1)
+            {
+                screenData.Loser = screenData.SelectedBotCharacter;
+                screenData.Winner = screenData.SelectedCharacter;
+                this.screenManager.ChangeScreen("end");
+            }
         }
 
         public override void Draw(SpriteBatch spritebatch)

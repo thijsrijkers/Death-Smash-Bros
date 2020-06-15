@@ -63,6 +63,20 @@ namespace DeathSmashBros.Engine.Screens
         private void Character_Click(Button button)
         {
             screenData.SelectedCharacter = button.name;
+            Random rnd = new Random();
+            int bot = rnd.Next(1, 4);
+            if(bot == 1)
+            {
+                screenData.SelectedBotCharacter = "Rabfist";
+            }
+            else if(bot == 2)
+            {
+                screenData.SelectedBotCharacter = "Voidking";
+            }
+            else
+            {
+                screenData.SelectedBotCharacter = "Wraith";
+            }
             // TODO: enemy character randomizen
             screenManager.ChangeScreen("fight");
         }

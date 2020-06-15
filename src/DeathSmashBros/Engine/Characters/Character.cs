@@ -117,6 +117,9 @@ namespace DeathSmashBros.Engine
             if (this.Hitbox.X > 800 || this.Hitbox.X < 0 || this.Hitbox.Y < 0 || this.Hitbox.Y > 480)
             {
                 this.stocksLeft -= 1;
+                this.Hitbox.X = 300;
+                this.Hitbox.Y = 80;
+                this.damageTaken = 0;
             }
         }
         
