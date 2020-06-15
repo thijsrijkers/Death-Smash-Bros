@@ -20,14 +20,14 @@ namespace DeathSmashBros.Engine.Characters
             this.scale = new Vector2(240, 240);
             this.renderOffset = new Vector2(400, 430);
 
-            // TODO de juiste animations
-            this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
-            this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/regularattack/regularattack", 12));
-            this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/specialattack/specialattack", 10));
-            this.animations.Add("jumpattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/jumpattack/jumpattack", 10));
-            this.animations.Add("jump", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/jump/jump", 8));
-            this.animations.Add("walkleft", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/sprintleft/sprintleft", 4));
-            this.animations.Add("walkright", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/sprintright/sprintright", 4));
+            // TODO animation times evt
+            this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/idle/idle", 4));
+            this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/regularattack/regularattack", 4));
+            this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/specialattack/specialattack", 8));
+            this.animations.Add("jumpattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/jumpattack/jumpattack", 8));
+            this.animations.Add("jump", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/jump/jump", 6));
+            this.animations.Add("walkleft", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/sprintleft/sprintleft", 3));
+            this.animations.Add("walkright", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/sprintright/sprintright", 3));
         }
 
         public override void Update(GameTime gametime, Scene scene)
