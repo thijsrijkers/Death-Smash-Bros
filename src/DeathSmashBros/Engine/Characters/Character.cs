@@ -104,9 +104,7 @@ namespace DeathSmashBros.Engine
                 this.Hitbox.X + 2 > scene.hitboxes.First().Width)
             {
                 this.Hitbox.Y += gravity;
-            }
-
-            
+            }        
         }
 
         // virtual base methods voor animations en common actions
@@ -132,27 +130,31 @@ namespace DeathSmashBros.Engine
 
         public virtual void walkLeft()
         {
-            this.currentAnimation = "walkright";
-            this.Hitbox.X -= this.speed;
-            this.looksRight = false;
+            if (this.Hitbox.X > scene.hitboxes.First().X)
+            {
+                this.currentAnimation = "walkright";
+                this.looksRight = false;
+            }
+            else
+            {
+                this.currentAnimation = "walkright";
+                this.Hitbox.X -= this.speed;
+                this.looksRight = false;
+            }
         }
 
         public virtual void walkRight()
         {
-            if(this.Hitbox.Y - 2 < scene.hitboxes.First().Y - this.Hitbox.Height)
-            {             
+            if(this.Hitbox.X < scene.hitboxes.First().X - this.Hitbox.Width)
+            {
                 this.currentAnimation = "walkright";
-                this.Hitbox.X += this.speed;
-                looksRight = true;           
+                looksRight = true;
             }
             else
             {
-                if(this.Hitbox.X < scene.hitboxes.First().X - this.Hitbox.Width)
-                {
-                    this.currentAnimation = "walkright";
-                    this.Hitbox.X += this.speed;
-                    looksRight = true;
-                }                
+                this.currentAnimation = "walkright";
+                this.Hitbox.X += this.speed;
+                looksRight = true;
             }
         }
 
