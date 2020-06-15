@@ -130,15 +130,15 @@ namespace DeathSmashBros.Engine
 
         public virtual void walkLeft()
         {
-            if (this.Hitbox.X > scene.hitboxes.First().X)
+            if (this.Hitbox.X > scene.hitboxes.First().X - this.Hitbox.Width)
             {
                 this.currentAnimation = "walkright";
+                this.Hitbox.X -= this.speed;
                 this.looksRight = false;
             }
             else
             {
                 this.currentAnimation = "walkright";
-                this.Hitbox.X -= this.speed;
                 this.looksRight = false;
             }
         }
