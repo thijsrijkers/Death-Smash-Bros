@@ -85,6 +85,7 @@ namespace DeathSmashBros.Engine.Screens
             }
 
             playerDamage.Update(PlayerOne, PlayerTwo);
+            updateStocks();
         }
 
         public override void Draw(SpriteBatch spritebatch)
@@ -144,5 +145,12 @@ namespace DeathSmashBros.Engine.Screens
             }
         }
 
+        public void updateStocks()
+        {
+            drawables.RemoveAll(x => stocksPlayerOne.Contains(x));
+            drawables.RemoveAll(x => stocksPlayerTwo.Contains(x));
+            getStocks();
+            drawStocks();
+        }
     }
 }
