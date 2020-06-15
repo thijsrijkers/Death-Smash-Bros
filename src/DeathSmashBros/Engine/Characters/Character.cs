@@ -112,7 +112,12 @@ namespace DeathSmashBros.Engine
                 this.Hitbox.X + 2 > scene.hitboxes.First().Width)
             {
                 this.Hitbox.Y += gravity;
-            }        
+            }
+
+            if (this.Hitbox.X > 800 || this.Hitbox.X < 0 || this.Hitbox.Y < 0 || this.Hitbox.Y > 480)
+            {
+                this.stocksLeft -= 1;
+            }
         }
         
         // TODO andere hitboxes, attack cooldown
@@ -177,6 +182,7 @@ namespace DeathSmashBros.Engine
         public virtual void jump()
         {
             this.currentAnimation = "jump";
+            this.Hitbox.Y -= this.speed * 4;
         }
 
         public virtual void walkLeft()
