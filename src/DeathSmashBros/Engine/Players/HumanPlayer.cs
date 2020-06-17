@@ -15,23 +15,34 @@ namespace DeathSmashBros.Engine.Players
         {
         }
 
+        double timer = 0.6;         
+        const double TIMER = 0.6;
+        bool attackPossible = true;
+
         public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
             base.Update(otherPlayer, gameTime, scene);
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            timer -= elapsed;
+            if (timer < 0.0)
+            {
+                //Timer expired, execute action
+                timer = TIMER;   //Reset Timer
+                attackPossible = true;
+            }
             var keyboardState = Keyboard.GetState();
 
             if(keyboardState.IsKeyDown(Keys.W))
             {
-                //FIRE!!!
-                this.character.jumpAttack();
+                if (attackPossible == true)
+                {
+                    this.character.jumpAttack();
+                    attackPossible = false;
+                }
             }
             else if (keyboardState.IsKeyDown(Keys.A))
             {
                 this.character.walkLeft();
-            }
-            else if (keyboardState.IsKeyDown(Keys.S))
-            {
-                // doot doot
             }
             else if (keyboardState.IsKeyDown(Keys.D))
             {
@@ -39,15 +50,27 @@ namespace DeathSmashBros.Engine.Players
             }
             else if (keyboardState.IsKeyDown(Keys.Q))
             {
-                this.character.regularAttack();
+                if (attackPossible == true)
+                {
+                    this.character.regularAttack();
+                    attackPossible = false;
+                }
             }
             else if (keyboardState.IsKeyDown(Keys.Space))
             {
-                this.character.jump();
+                if (attackPossible == true)
+                {
+                    this.character.jump();
+                    attackPossible = false;
+                }
             }
             else if (keyboardState.IsKeyDown(Keys.E))
             {
-                this.character.specialAttack();
+                if (attackPossible == true)
+                {
+                    this.character.specialAttack();
+                    attackPossible = false;
+                }
             }
         }
     }

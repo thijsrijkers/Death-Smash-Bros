@@ -24,7 +24,7 @@ namespace DeathSmashBros.Engine
 
             if(this.character.Hitbox.Intersects(otherPlayer.character.AttackHitbox))
             {
-                this.character.damageTaken += 15; // TODO: ((thidelijk hardcoded?))
+                this.character.damageTaken += (3 + otherPlayer.character.power); // TODO: ((thidelijk hardcoded?))
                 otherPlayer.character.AttackHitbox = new Rectangle(0, 0, 0, 0); // attack hit, weg met hitbox
             }
         }
