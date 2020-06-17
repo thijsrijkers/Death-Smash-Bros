@@ -26,6 +26,11 @@ namespace DeathSmashBros.Engine
         public int width;
         public int height;
 
+        public bool dead = false;
+
+        double timer = 1;
+        const double TIMER = 1;
+
         public Rectangle AttackHitbox;
         public DateTime AttackTime;
 
@@ -81,6 +86,11 @@ namespace DeathSmashBros.Engine
                 this.AttackHitbox = new Rectangle(0, 0, 0, 0); //Time is more than 500ms so hitbox is zero
             }
 
+            if(dead == true)
+            {
+                this.currentAnimation = "blast";
+            }
+
             this.animations[currentAnimation].Update(gameTime);
 
             this.scene = scene;
@@ -88,29 +98,57 @@ namespace DeathSmashBros.Engine
             if(this.animations[currentAnimation].AnimationEnded)
             {
                 this.animations[currentAnimation].AnimationEnded = false;
-                this.currentAnimation = "idle";
+                if(dead == false)
+                {
+                    this.currentAnimation = "idle";
+                }
             }
 
             // Make sure the character can stand on the stage of the scene
             if (this.Hitbox.Y < scene.hitboxes.First().Y - this.Hitbox.Height)
             {
-                this.Hitbox.Y += gravity;
+                if (dead == false)
+                {
+                    this.Hitbox.Y += gravity;
+                }
             }
 
             //Make sure the character falls of the stage
             if(this.Hitbox.X - 2 < scene.hitboxes.First().X - this.Hitbox.Width || 
                 this.Hitbox.X + 2 > scene.hitboxes.First().Width)
             {
-                this.Hitbox.Y += gravity;
+                if(dead == false)
+                {
+                    this.Hitbox.Y += gravity;
+                }
+            }
+
+            if (this.dead == true)
+            {
+                float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+                timer -= elapsed;
             }
 
             //Player dies if he is out of the map
-            if (this.Hitbox.X > 800 || this.Hitbox.X < 0 || this.Hitbox.Y < 0 || this.Hitbox.Y > 480)
+            if (this.Hitbox.X > 750 || this.Hitbox.X < 0 || this.Hitbox.Y < 0 || this.Hitbox.Y > 480)
             {
-                this.stocksLeft -= 1;
-                this.Hitbox.X = 300;
-                this.Hitbox.Y = 80;
-                this.damageTaken = 0;
+                if(dead == false)
+                {
+                    this.dead = true;
+                    blast();
+                }
+
+                if (timer < 0.0)
+                {
+                    this.dead = false;
+                    this.currentAnimation = "idle";
+                    this.stocksLeft -= 1;
+                    this.Hitbox.X = 300;
+                    this.Hitbox.Y = 80;
+                    this.damageTaken = 0;
+                    timer = TIMER;   //Reset Timer
+
+                }
             }
         }
         
@@ -232,16 +270,12 @@ namespace DeathSmashBros.Engine
             if (this.Hitbox.X < 0)
             {
                 //left
-                this.currentAnimation = "blast";
-                this.AttackTime = DateTime.Now;
-                this.looksRight = false;
-            }
-            else
-            {
-                //right
-                this.currentAnimation = "blast";
-                this.AttackTime = DateTime.Now;
                 this.looksRight = true;
+            }
+            else if (this.Hitbox.X > 750)
+            {
+                //left
+                this.looksRight = false;
             }
         }
 

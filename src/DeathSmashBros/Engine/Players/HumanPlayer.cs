@@ -46,12 +46,18 @@ namespace DeathSmashBros.Engine.Players
             //WalkLeft
             else if (keyboardState.IsKeyDown(Keys.A))
             {
-                this.character.walkLeft();
+                if (this.character.dead == false)
+                {
+                    this.character.walkLeft();
+                }
             }
             //WalkRight
             else if (keyboardState.IsKeyDown(Keys.D))
             {
-                this.character.walkRight();
+                if (this.character.dead == false)
+                {
+                    this.character.walkRight();
+                }
             }
             //RegularAttack
             else if (keyboardState.IsKeyDown(Keys.Q))
@@ -67,8 +73,11 @@ namespace DeathSmashBros.Engine.Players
             {
                 if (attackPossible == true)
                 {
-                    this.character.jump();
-                    attackPossible = false;
+                    if (this.character.dead == false)
+                    {
+                        this.character.jump();
+                        attackPossible = false;
+                    }
                 }
             }
             //SpecialAttack
@@ -79,13 +88,6 @@ namespace DeathSmashBros.Engine.Players
                     this.character.specialAttack();
                     attackPossible = false;
                 }
-            }
-
-            //Blast when out of the map
-            if(this.character.Hitbox.X > 800 || this.character.Hitbox.X < 0 || this.character.Hitbox.Y < 0 || this.character.Hitbox.Y > 480)
-            {
-                this.character.blast();
-                attackPossible = false;
             }
         }
     }

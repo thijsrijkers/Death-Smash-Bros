@@ -94,11 +94,6 @@ namespace DeathSmashBros.Engine.Players
                         this.character.jumpAttack();
                     }
                 }
-                //Blast
-                else if (this.character.Hitbox.X > 800 || this.character.Hitbox.X < 0 || this.character.Hitbox.Y < 0 || this.character.Hitbox.Y > 480)
-                {
-                    this.character.blast();
-                }
                 previoustick = DateTime.Now;
             }
         }
