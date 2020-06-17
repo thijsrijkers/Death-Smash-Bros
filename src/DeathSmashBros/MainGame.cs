@@ -12,6 +12,7 @@ namespace DeathSmashBros
 {
     public class MainGame : Game
     {
+        //Set default height and width
         public const int RENDER_WIDTH = 800;
         public const int RENDER_HEIGHT = 480;
 
@@ -38,6 +39,7 @@ namespace DeathSmashBros
             base.Initialize();
         }
 
+        //Loading content
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -55,7 +57,7 @@ namespace DeathSmashBros
             screenManager.AddScreen(new FightScreen(screenManager, sceneManager));
             screenManager.AddScreen(new EndScreen(screenManager));
 
-            screenManager.ChangeScreen("home"); // initiele screen
+            screenManager.ChangeScreen("home"); // initial screen
 
             renderTarget = new RenderTarget2D(GraphicsDevice, RENDER_WIDTH, RENDER_HEIGHT);
         }
@@ -65,6 +67,7 @@ namespace DeathSmashBros
         }
 
         KeyboardState previous = new KeyboardState();
+        //Make window full screen
         protected override void Update(GameTime gameTime)
         {
             var newstate = Keyboard.GetState();
@@ -93,8 +96,6 @@ namespace DeathSmashBros
             mouseX = (int)(((float)mouseX / Window.ClientBounds.Width) * RENDER_WIDTH);
             mouseY = (int)(((float)mouseY / Window.ClientBounds.Height) * RENDER_HEIGHT);
             MousePositions = new Point(mouseX, mouseY);
-            // misschien een mogelijkheid ergens deze waardes zonder statics door te voeren naar de desbetreffende classes?
-
 
             screenManager.UpdateScreen(gameTime);
 
@@ -105,13 +106,13 @@ namespace DeathSmashBros
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // Renderen game zelf naar rendertarget
+            //Rendering game to rendertarget
             GraphicsDevice.SetRenderTarget(renderTarget);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             screenManager.DrawScreen(spriteBatch);
             spriteBatch.End();
 
-            // rendertarget renderen naar window
+            // rendertarget render to window
             GraphicsDevice.SetRenderTarget(null);
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             spriteBatch.Draw(renderTarget, new Rectangle(0,0,Window.ClientBounds.Width, Window.ClientBounds.Height), Color.White);

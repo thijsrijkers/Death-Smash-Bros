@@ -17,6 +17,7 @@ namespace DeathSmashBros.Engine.Screens
             name = "characterSelect";
         }
 
+        //Load content on screen
         public override void LoadContent(ScreenData data)
         {
             int bgHeight = MainGame.RENDER_HEIGHT;
@@ -32,6 +33,7 @@ namespace DeathSmashBros.Engine.Screens
 
             while (y <= maxY)
             {
+                //Draws buttons on screen
                 Button rabfist = new Button("rabfist", Loader.getTexture("rabfist_playerselect"), new Vector2(x, y), new Vector2(200, 100));
                 rabfist.click += Character_Click;
                 x += 210;
@@ -55,14 +57,17 @@ namespace DeathSmashBros.Engine.Screens
             base.LoadContent(data);
         }
 
+        //Go back to stage screen
         private void Back_click(Button button)
         {
             screenManager.ChangeScreen(this.screenData.PreviousScreen);
         }
 
+        //Select character 
         private void Character_Click(Button button)
         {
             screenData.SelectedCharacter = button.name;
+            //Random number for choosing bot character
             Random rnd = new Random();
             int bot = rnd.Next(0, 4);
             if(bot == 1)
@@ -78,6 +83,7 @@ namespace DeathSmashBros.Engine.Screens
                 screenData.SelectedBotCharacter = "wraith";
             }
 
+            //Go to fightscreen
             screenManager.ChangeScreen("fight");
         }
     }

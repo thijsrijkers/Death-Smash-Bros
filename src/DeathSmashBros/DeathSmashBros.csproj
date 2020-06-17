@@ -70,7 +70,6 @@
     <Compile Include="Engine\ScreenManager.cs" />
     <Compile Include="Engine\GameTimer.cs" />
     <Compile Include="MainGame.cs" />
-    <Compile Include="player\character.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

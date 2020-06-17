@@ -22,6 +22,7 @@ namespace DeathSmashBros.Engine
             this.currentFrame = 0;
         }
 
+        //Addding animation frames
         public Animation(TimeSpan animationTime, string texturename, int framecount)
         {
             this.animationTime = animationTime;
@@ -36,6 +37,7 @@ namespace DeathSmashBros.Engine
         {
             if (this.frames.Count > 0)
             {
+                //Generates anamation frames with animation time
                 var timer = gameTime.TotalGameTime.TotalMilliseconds % animationTime.TotalMilliseconds;
                 var progress = (100 / animationTime.TotalMilliseconds) * timer;
                 this.currentFrame = (int)Math.Abs((frames.Count * progress) / 100);
@@ -47,10 +49,12 @@ namespace DeathSmashBros.Engine
             }
         }
 
+        //Draws animation
+        [Obsolete]
         public void Draw(SpriteBatch spriteBatch, Vector2 postion, Vector2 size, bool mirrored = false)
         {
             spriteBatch.Draw(frames[currentFrame], destinationRectangle: new Rectangle(postion.ToPoint(), size.ToPoint()),
-                color: Color.White, effects: mirrored? SpriteEffects.None : SpriteEffects.FlipHorizontally);
+                color: Color.White, effects: mirrored ? SpriteEffects.None : SpriteEffects.FlipHorizontally);
         }
     }
 }

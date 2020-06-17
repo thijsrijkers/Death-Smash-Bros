@@ -29,17 +29,19 @@ namespace DeathSmashBros.Engine
             return game.Content.Load<SpriteFont>(path);
         }
 
+        //if exit the game exits
         public static void Exit()
         {
             game.Exit();
         }
 
+        //Check mousePressed
         public static bool MousePressed { get; private set; }
         private static MouseState previousState;
         public static void UpdateMouse()
         {
             var currentState = Mouse.GetState();
-
+            //Check if released, so you wont click more than once
             if(currentState.LeftButton == ButtonState.Released && previousState.LeftButton == ButtonState.Pressed)
             {
                 MousePressed = true;

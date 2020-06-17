@@ -13,6 +13,7 @@ namespace DeathSmashBros.Engine.Characters
     {
         public Wraith() : base()
         {
+            //Character info
             this.gravity = 5;
             this.power = 5;
             this.speed = 1;
@@ -21,7 +22,7 @@ namespace DeathSmashBros.Engine.Characters
             this.scale = new Vector2(240, 240);
             this.renderOffset = new Vector2(400, 430);
 
-            // TODO animation times evt
+            //Animation added
             this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Wraith/idle/idle", 5));
             this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Wraith/regularattack/regularattack", 5));
             this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Wraith/specialattack/specialattack", 8));

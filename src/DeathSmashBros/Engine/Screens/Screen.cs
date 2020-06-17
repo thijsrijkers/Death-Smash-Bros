@@ -27,7 +27,7 @@ namespace DeathSmashBros.Engine
             this.screenData = data;
         }
 
-        // Pas screendata aan voordat je naar de volgende screen gaat
+        //changed screendata before you go to next screen
         public ScreenData UnloadContent()
         {
             drawables.Clear();

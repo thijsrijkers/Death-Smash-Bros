@@ -12,8 +12,6 @@ namespace DeathSmashBros.Engine
 {
     public abstract class Character
     {
-        // TODO positions
-
         public Rectangle Hitbox;
         public Scene scene;
 
@@ -40,18 +38,7 @@ namespace DeathSmashBros.Engine
 
         public Character()
         {
-            this.animations = new Dictionary<string, Animation>(); // Lijst voor animaties
-
-            // In de aparte (inherited) constructors moeten nog animations ingeladen worden.
-            // IDs voor animations:
-
-            // idle
-            // attack
-            // specialattack
-            // jumpattack
-            // jump
-            // walkleft
-            // walkright
+            this.animations = new Dictionary<string, Animation>(); 
         }
 
         public Vector2 getPosition
@@ -62,6 +49,7 @@ namespace DeathSmashBros.Engine
             }
         }
 
+        //Position is set
         public void setPosition(Vector2 pos)
         {
             this.Hitbox.X = (int)pos.X;
@@ -91,7 +79,7 @@ namespace DeathSmashBros.Engine
         {
             if(DateTime.Now.Subtract(this.AttackTime).TotalMilliseconds > 500)
             {
-                this.AttackHitbox = new Rectangle(0, 0, 0, 0); // tijd sinds attack is meer dan 500ms dus hitbox is zero
+                this.AttackHitbox = new Rectangle(0, 0, 0, 0); //Time is more than 500ms so hitbox is zero
             }
 
             this.animations[currentAnimation].Update(gameTime);
@@ -126,22 +114,21 @@ namespace DeathSmashBros.Engine
             }
         }
         
-        // TODO andere hitboxes, attack cooldown
-        // virtual base methods voor animations en common actions
+        // virtual base methods for animations and common actions
         public virtual void regularAttack()
         {
             this.currentAnimation = "attack";
             this.AttackTime = DateTime.Now;
-            // hitbox spawnen naast character
+            // hitbox spawn near character
             if(this.looksRight)
             {
-                // hitbox rechts
+                // hitbox right
                 this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
                     this.Hitbox.Width / 2, this.Hitbox.Height / 2);
             }
             else
             {
-                // hitbox links
+                // hitbox left
                 this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
                     this.Hitbox.Width / 2, this.Hitbox.Height / 2);
             }
@@ -151,16 +138,16 @@ namespace DeathSmashBros.Engine
         {
             this.currentAnimation = "specialattack";
             this.AttackTime = DateTime.Now;
-            // hitbox spawnen naast character
+            // hitbox spawn near character
             if (this.looksRight)
             {
-                // hitbox rechts
+                // hitbox right
                 this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
                     this.Hitbox.Width / 2, this.Hitbox.Height / 2);
             }
             else
             {
-                // hitbox links
+                // hitbox left
                 this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
                     this.Hitbox.Width / 2, this.Hitbox.Height / 2);
             }
@@ -170,27 +157,29 @@ namespace DeathSmashBros.Engine
         {
                 this.currentAnimation = "jumpattack";
                 this.AttackTime = DateTime.Now;
-                // hitbox spawnen naast character
+                // hitbox spawn near character
                 if (this.looksRight)
                 {
-                    // hitbox rechts
+                    // hitbox right
                     this.AttackHitbox = new Rectangle(this.Hitbox.X + this.Hitbox.Width, this.Hitbox.Y + this.Hitbox.Height / 2,
                         this.Hitbox.Width / 2, this.Hitbox.Height / 2);
                 }
                 else
                 {
-                    // hitbox links
+                    // hitbox left
                     this.AttackHitbox = new Rectangle(this.Hitbox.X - (this.Hitbox.Width / 2), this.Hitbox.Y + this.Hitbox.Height / 2,
                         this.Hitbox.Width / 2, this.Hitbox.Height / 2);
                 }
         }
 
+        //Character jump calculated by speed
         public virtual void jump()
         {
             this.currentAnimation = "jump";
             this.Hitbox.Y -= this.speed * 40;
         }
 
+        //Character can walk left
         public virtual void walkLeft()
         {
             if (this.Hitbox.X < 800)
@@ -214,6 +203,7 @@ namespace DeathSmashBros.Engine
             }
         }
 
+        //Character can walk right
         public virtual void walkRight()
         {
             if(this.Hitbox.X < 800)

@@ -13,6 +13,7 @@ namespace DeathSmashBros.Engine.Characters
     {
         public Voidking() : base()
         {
+            //Character info
             this.gravity = 4;
             this.power = 3;
             this.speed = 3;
@@ -21,7 +22,7 @@ namespace DeathSmashBros.Engine.Characters
             this.scale = new Vector2(240, 240);
             this.renderOffset = new Vector2(400, 430);
 
-            // TODO animation times evt
+            //Animations added
             this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/idle/idle", 9));
             this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/regularattack/regularattack", 12));
             this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/specialattack/specialattack", 10));
