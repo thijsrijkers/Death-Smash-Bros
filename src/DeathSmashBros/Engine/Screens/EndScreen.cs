@@ -11,8 +11,10 @@ namespace DeathSmashBros.Engine.Screens
 {
     public class EndScreen : Screen
     {
+        private SpriteFont font;
         public EndScreen(ScreenManager _screenManager) : base(_screenManager)
         {
+            font = Loader.getFont("debugtext");
             name = "end";
         }
 
@@ -27,12 +29,14 @@ namespace DeathSmashBros.Engine.Screens
             string winnerName;
             string loserName;
             string loser;
+            string winnerText;
 
             //Check who wins game
             if (screenData.Winner == "bot")
             {
                 winner = "_enemy";
                 loser = "_player";
+                winnerText = "lost";
                 winnerName = screenData.SelectedBotCharacter;
                 loserName = screenData.SelectedCharacter;
             }
@@ -40,6 +44,7 @@ namespace DeathSmashBros.Engine.Screens
             {
                 winner = "_player";
                 loser = "_enemy";
+                winnerText = "win";
                 loserName = screenData.SelectedBotCharacter;
                 winnerName = screenData.SelectedCharacter;
             }
@@ -56,10 +61,13 @@ namespace DeathSmashBros.Engine.Screens
             Image winnerFrame = new Image(Loader.getTexture("frames/" + winnerName + winner), new Vector2(350, 25), new Vector2(450, 300));
             Image loserFrame = new Image(Loader.getTexture("frames/" + loserName + loser), new Vector2(350, 150), new Vector2(450, 300));
 
+            Image endText = new Image(Loader.getTexture(winnerText), new Vector2(350, 30), new Vector2(395, 69));
+
             drawables.Add(background);
             drawables.Add(winnerSprite);
             drawables.Add(winnerFrame);
             drawables.Add(loserFrame);
+            drawables.Add(endText);
             drawables.Add(back);
         }
 
