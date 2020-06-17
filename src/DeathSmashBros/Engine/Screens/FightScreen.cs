@@ -30,7 +30,6 @@ namespace DeathSmashBros.Engine.Screens
         {
             name = "fight";
             this.sceneManager = _sceneManager;
-            this.gameTimer = new GameTimer();
             this.playerDamage = new PlayerDamage();
         }
 
@@ -57,10 +56,10 @@ namespace DeathSmashBros.Engine.Screens
             stocksPlayerOne = new List<Image>();
             stocksPlayerTwo = new List<Image>();
 
-
             getStocks();
 
-            
+            this.gameTimer = new GameTimer();
+
             drawables.Add(background);
             drawables.Add(stage);
             drawStocks();
@@ -81,7 +80,27 @@ namespace DeathSmashBros.Engine.Screens
             // End the fight when the time is up
             if(gameTimer.timeSpan < TimeSpan.Zero)
             {
-                this.screenManager.ChangeScreen("end");
+                if(this.PlayerTwo.character.stocksLeft > this.PlayerOne.character.stocksLeft)
+                {
+                    screenData.Loser = "player";
+                    screenData.Winner = "bot";
+                }
+                else if(this.PlayerTwo.character.stocksLeft < this.PlayerOne.character.stocksLeft)
+                {
+                    screenData.Loser = "bot";
+                    screenData.Winner = "player";
+                }
+                else if (this.PlayerTwo.character.damageTaken < this.PlayerOne.character.damageTaken)
+                {
+                    screenData.Loser = "player";
+                    screenData.Winner = "bot";
+                }
+                else
+                {
+                    screenData.Loser = "bot";
+                    screenData.Winner = "player";
+                }
+                    this.screenManager.ChangeScreen("end");
             }
 
             playerDamage.Update(PlayerOne, PlayerTwo);
