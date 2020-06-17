@@ -76,10 +76,16 @@ namespace DeathSmashBros
                 if (!this.graphics.IsFullScreen)
                 {
                     this.Window.IsBorderless = true;
+                    this.graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                    this.graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                    this.graphics.ApplyChanges();
                 }
                 else
                 {
                     this.Window.IsBorderless = false;
+                    this.graphics.PreferredBackBufferWidth = RENDER_WIDTH;
+                    this.graphics.PreferredBackBufferHeight = RENDER_HEIGHT;
+                    this.graphics.ApplyChanges();
                 }
                 this.graphics.ToggleFullScreen();
             }
