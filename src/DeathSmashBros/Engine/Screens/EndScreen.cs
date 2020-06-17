@@ -52,7 +52,7 @@ namespace DeathSmashBros.Engine.Screens
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(70, 70));
             back.click += Back_click;
 
-            Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
+            Image background = new Image(Loader.getTexture("WinnersBackground"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
             //Big image on the left for the winner
             Image winnerSprite = new Image(Loader.getTexture("Characters/"+ winnerName + "/"+ winnerName), new Vector2(0, 0), new Vector2(400, bgHeight));
