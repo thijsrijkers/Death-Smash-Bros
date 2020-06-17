@@ -87,7 +87,7 @@ namespace DeathSmashBros
                     this.graphics.PreferredBackBufferHeight = RENDER_HEIGHT;
                     this.graphics.ApplyChanges();
                 }
-                //this.graphics.ToggleFullScreen();
+                this.graphics.ToggleFullScreen();
             }
             previous = newstate;
 
