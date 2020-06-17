@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DeathSmashBros.Engine
 {
@@ -105,21 +104,8 @@ namespace DeathSmashBros.Engine
                 this.Hitbox.Y += gravity;
             }
 
-            if (this.Hitbox.X > 900 || this.Hitbox.X < -150 || this.Hitbox.Y < -150 || this.Hitbox.Y > 580)
+            if (this.Hitbox.X > 800 || this.Hitbox.X < 0 || this.Hitbox.Y < 0 || this.Hitbox.Y > 480)
             {
-                if(this.Hitbox.X > 580)
-                {
-                    //left
-                    this.currentAnimation = "blast";
-                    this.looksRight = false;
-                }
-                else
-                {
-                    //right
-                    this.currentAnimation = "blast";
-                    this.looksRight = true;
-                }
-
                 this.stocksLeft -= 1;
                 this.Hitbox.X = 300;
                 this.Hitbox.Y = 80;
@@ -237,6 +223,24 @@ namespace DeathSmashBros.Engine
             {
                 this.currentAnimation = "walkright";
                 looksRight = true;
+            }
+        }
+
+        public virtual void blast()
+        {
+            if (this.Hitbox.X < 0)
+            {
+                //left
+                this.currentAnimation = "blast";
+                this.AttackTime = DateTime.Now;
+                this.looksRight = false;
+            }
+            else
+            {
+                //right
+                this.currentAnimation = "blast";
+                this.AttackTime = DateTime.Now;
+                this.looksRight = true;
             }
         }
 

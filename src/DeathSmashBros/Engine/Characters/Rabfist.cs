@@ -78,5 +78,10 @@ namespace DeathSmashBros.Engine.Characters
 
             base.walkRight();
         }
+
+        public override void blast()
+        {
+            base.blast();
+        }
     }
 }
