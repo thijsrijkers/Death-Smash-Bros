@@ -32,10 +32,10 @@ namespace DeathSmashBros.Engine
         {  
             //Draws the damage on screen
             string tempStr1 = damagePlayerOne + "%";
-            spriteBatch.DrawString(font, tempStr1, new Vector2(250, 410), Color.White);
+            spriteBatch.DrawString(font, tempStr1, new Vector2(240, 410), Color.White);
 
             string tempStr2 = damagePlayerTwo + "%";
-            spriteBatch.DrawString(font, tempStr2, new Vector2(600, 410), Color.White);
+            spriteBatch.DrawString(font, tempStr2, new Vector2(590, 410), Color.White);
         }
     }
 }
