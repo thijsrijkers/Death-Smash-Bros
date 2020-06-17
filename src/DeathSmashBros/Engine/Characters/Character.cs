@@ -107,6 +107,19 @@ namespace DeathSmashBros.Engine
 
             if (this.Hitbox.X > 900 || this.Hitbox.X < -150 || this.Hitbox.Y < -150 || this.Hitbox.Y > 580)
             {
+                if(this.Hitbox.X > 580)
+                {
+                    //left
+                    this.currentAnimation = "blast";
+                    this.looksRight = false;
+                }
+                else
+                {
+                    //right
+                    this.currentAnimation = "blast";
+                    this.looksRight = true;
+                }
+
                 this.stocksLeft -= 1;
                 this.Hitbox.X = 300;
                 this.Hitbox.Y = 80;

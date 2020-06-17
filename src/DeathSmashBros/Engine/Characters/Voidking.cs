@@ -30,6 +30,7 @@ namespace DeathSmashBros.Engine.Characters
             this.animations.Add("jump", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/jump/jump", 8));
             this.animations.Add("walkleft", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/sprintleft/sprintleft", 4));
             this.animations.Add("walkright", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Voidking/sprintright/sprintright", 4));
+            this.animations.Add("blast", new Animation(TimeSpan.FromMilliseconds(1000), "blastLeft/blastleft", 4));
         }
 
         public override void Update(GameTime gametime, Scene scene)

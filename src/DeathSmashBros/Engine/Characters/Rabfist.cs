@@ -30,6 +30,7 @@ namespace DeathSmashBros.Engine.Characters
             this.animations.Add("jump", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/jump/jump", 6));
             this.animations.Add("walkleft", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/sprintleft/sprintleft", 3));
             this.animations.Add("walkright", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/sprintright/sprintright", 3));
+            this.animations.Add("blast", new Animation(TimeSpan.FromMilliseconds(1000), "blastLeft/blastleft", 4));
         }
 
         public override void Update(GameTime gametime, Scene scene)
