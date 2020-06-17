@@ -64,8 +64,24 @@ namespace DeathSmashBros
         {
         }
 
+        KeyboardState previous = new KeyboardState();
         protected override void Update(GameTime gameTime)
         {
+            var newstate = Keyboard.GetState();
+            if(newstate.IsKeyDown(Keys.F1) && previous.IsKeyUp(Keys.F1))
+            {
+                if (!this.graphics.IsFullScreen)
+                {
+                    this.Window.IsBorderless = true;
+                }
+                else
+                {
+                    this.Window.IsBorderless = false;
+                }
+                this.graphics.ToggleFullScreen();
+            }
+            previous = newstate;
+
             Loader.UpdateMouse();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
