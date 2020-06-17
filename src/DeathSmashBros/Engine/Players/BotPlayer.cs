@@ -37,7 +37,11 @@ namespace DeathSmashBros.Engine.Players
                     this.character.walkLeft();
                 }
             }
-            else if (this.character.getPosition.Y < otherPlayer.character.getPosition.Y)
+            else if (this.character.getPosition.Y > otherPlayer.character.getPosition.Y)
+            {
+                this.character.jump();
+            }
+            else if (this.character.getPosition.Y > 280)
             {
                 this.character.jump();
             }
