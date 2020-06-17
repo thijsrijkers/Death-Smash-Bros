@@ -13,6 +13,30 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../assets/logo/lost.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../assets/logo/lost.png;lost.png
+
+#begin ../../../assets/logo/win.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../assets/logo/win.png;win.png
+
 #begin backbutton.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1904,7 +1928,7 @@
 /processorParam:TextureFormat=Color
 /build:homescreen-startbutton.png
 
-#begin lost.PNG
+#begin logo.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1914,7 +1938,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:lost.PNG
+/build:logo.png
 
 #begin playerframe-enemy-voidking.png
 /importer:TextureImporter
@@ -2047,18 +2071,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:voidking_playerselect.png
-
-#begin win.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:win.PNG
 
 #begin wraith_player.png
 /importer:TextureImporter
