@@ -11,7 +11,7 @@ namespace DeathSmashBros.Engine.Players
 {
     public class HumanPlayer : Player
     {
-        public HumanPlayer(Character character) : base(character)
+        public HumanPlayer(Character character, bool playerOne) : base(character, playerOne)
         {
         }
 

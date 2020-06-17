@@ -12,10 +12,20 @@ namespace DeathSmashBros.Engine
     public abstract class Player
     {
         public Character character;
+        public Texture2D playerTag;
 
-        public Player(Character character)
+        public Player(Character character, bool playerOne)
         {
             this.character = character;
+            this.playerTag = playerTag;
+            if(playerOne)
+            {
+                this.playerTag = Loader.getTexture("playertag");
+            }
+            else
+            {
+                this.playerTag = Loader.getTexture("bottag");
+            }
         }
 
         public virtual void Update(Player otherPlayer, GameTime gameTime, Scene scene)
@@ -44,6 +54,7 @@ namespace DeathSmashBros.Engine
         public void Draw(SpriteBatch spriteBatch)
         {
             this.character.Draw(spriteBatch);
+            spriteBatch.Draw(this.playerTag, new Rectangle(this.character.Hitbox.X+10, this.character.Hitbox.Y - 70, 50, 50), Color.White);
         }
     }
 }

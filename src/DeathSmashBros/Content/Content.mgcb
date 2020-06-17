@@ -61,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:backgroundCharacterWorldMenu.png
 
+#begin bottag.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:bottag.png
+
 #begin button-red.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1963,6 +1975,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:playerframe-rabfist.png
+
+#begin playertag.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:playertag.png
 
 #begin rabfist.png
 /importer:TextureImporter

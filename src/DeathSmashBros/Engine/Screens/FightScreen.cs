@@ -39,9 +39,9 @@ namespace DeathSmashBros.Engine.Screens
             base.LoadContent(data);
 
             //Players spawn in air
-            PlayerOne = new HumanPlayer(GetNewCharacter(data.SelectedCharacter));
+            PlayerOne = new HumanPlayer(GetNewCharacter(data.SelectedCharacter), true);
             PlayerOne.character.setPosition(new Vector2(200, 100));
-            PlayerTwo = new BotPlayer(GetNewCharacter(data.SelectedBotCharacter));
+            PlayerTwo = new BotPlayer(GetNewCharacter(data.SelectedBotCharacter), false);
             PlayerTwo.character.setPosition(new Vector2(500, 100));
 
             //Gets scene
