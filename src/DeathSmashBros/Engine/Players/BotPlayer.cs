@@ -42,7 +42,7 @@ namespace DeathSmashBros.Engine.Players
                 this.character.jump();
             }
 
-            if (DateTime.Now.Subtract(previoustick).TotalMilliseconds > 600)
+            if (DateTime.Now.Subtract(previoustick).TotalMilliseconds > 1000)
             {
                 Random rnd = new Random();
                 int num = rnd.Next(3);

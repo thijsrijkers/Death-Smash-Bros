@@ -13,9 +13,9 @@ namespace DeathSmashBros.Engine.Characters
     {
         public Voidking() : base()
         {
-            this.gravity = 5;
+            this.gravity = 4;
             this.power = 3;
-            this.speed = 2;
+            this.speed = 3;
             this.jumpCount = 2;
             this.jumpMax = 2;
             this.scale = new Vector2(240, 240);

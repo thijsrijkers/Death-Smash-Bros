@@ -15,8 +15,8 @@ namespace DeathSmashBros.Engine.Players
         {
         }
 
-        double timer = 0.6;         
-        const double TIMER = 0.6;
+        double timer = 0.8;         
+        const double TIMER = 0.8;
         bool attackPossible = true;
 
         public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)

@@ -13,7 +13,7 @@ namespace DeathSmashBros.Engine.Characters
     {
         public Rabfist() : base()
         {
-            this.gravity = 3;
+            this.gravity = 2;
             this.power = 1;
             this.speed = 5;
             this.jumpCount = 1;

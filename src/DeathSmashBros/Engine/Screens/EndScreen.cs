@@ -24,16 +24,34 @@ namespace DeathSmashBros.Engine.Screens
 
             int bgHeight = MainGame.RENDER_HEIGHT;
             int bgWidth = MainGame.RENDER_WIDTH;
+            string winner;
+            string winnerName;
+            string loserName;
+            string loser;
 
+            if (screenData.Winner == "bot")
+            {
+                winner = "_enemy";
+                loser = "_player";
+                winnerName = screenData.SelectedBotCharacter;
+                loserName = screenData.SelectedCharacter;
+            }
+            else
+            {
+                winner = "_player";
+                loser = "_enemy";
+                loserName = screenData.SelectedBotCharacter;
+                winnerName = screenData.SelectedCharacter;
+            }
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(70, 70));
             back.click += Back_click;
 
             Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
-            Image winnerSprite = new Image(Loader.getTexture("Characters/"+screenData.Winner+"/"+screenData.Winner), new Vector2(0, 0), new Vector2(400, bgHeight));
+            Image winnerSprite = new Image(Loader.getTexture("Characters/"+ winnerName + "/"+ winnerName), new Vector2(0, 0), new Vector2(400, bgHeight));
 
-            Image winnerFrame = new Image(Loader.getTexture("frames/"+screenData.Winner+"_player"), new Vector2(350, 25), new Vector2(450, 300));
-            Image loserFrame = new Image(Loader.getTexture("frames/"+screenData.Loser+"_player"), new Vector2(350, 150), new Vector2(450, 300));
+            Image winnerFrame = new Image(Loader.getTexture("frames/" + winnerName + winner), new Vector2(350, 25), new Vector2(450, 300));
+            Image loserFrame = new Image(Loader.getTexture("frames/" + loserName + loser), new Vector2(350, 150), new Vector2(450, 300));
 
             drawables.Add(background);
             drawables.Add(winnerSprite);

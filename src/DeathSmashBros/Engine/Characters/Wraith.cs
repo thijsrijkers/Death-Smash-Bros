@@ -13,7 +13,7 @@ namespace DeathSmashBros.Engine.Characters
     {
         public Wraith() : base()
         {
-            this.gravity = 1;
+            this.gravity = 5;
             this.power = 5;
             this.speed = 1;
             this.jumpCount = 2;

@@ -117,7 +117,7 @@ namespace DeathSmashBros.Engine
                 this.Hitbox.Y += gravity;
             }
 
-            if (this.Hitbox.X > 800 || this.Hitbox.X < 0 || this.Hitbox.Y < 0 || this.Hitbox.Y > 480)
+            if (this.Hitbox.X > 900 || this.Hitbox.X < -150 || this.Hitbox.Y < -150 || this.Hitbox.Y > 580)
             {
                 this.stocksLeft -= 1;
                 this.Hitbox.X = 300;
@@ -188,7 +188,7 @@ namespace DeathSmashBros.Engine
         public virtual void jump()
         {
             this.currentAnimation = "jump";
-            this.Hitbox.Y -= this.speed * 4;
+            this.Hitbox.Y -= this.speed * 40;
         }
 
         public virtual void walkLeft()
@@ -216,15 +216,23 @@ namespace DeathSmashBros.Engine
 
         public virtual void walkRight()
         {
-            if(this.Hitbox.X < scene.hitboxes.First().X - this.Hitbox.Width)
+            if(this.Hitbox.X < 800)
             {
-                this.currentAnimation = "walkright";
-                looksRight = true;
+                if(this.Hitbox.X > scene.hitboxes.First().X - this.Hitbox.Width && this.Hitbox.X < 300 && this.Hitbox.Y > 280)
+                {
+                    this.currentAnimation = "walkright";
+                    looksRight = true;
+                }
+                else
+                {
+                    this.currentAnimation = "walkright";
+                    this.Hitbox.X += this.speed;
+                    looksRight = true;
+                }
             }
             else
             {
                 this.currentAnimation = "walkright";
-                this.Hitbox.X += this.speed;
                 looksRight = true;
             }
         }

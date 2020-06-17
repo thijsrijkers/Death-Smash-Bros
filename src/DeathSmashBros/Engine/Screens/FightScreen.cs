@@ -89,14 +89,14 @@ namespace DeathSmashBros.Engine.Screens
 
             if(PlayerOne.character.getStocks() < 1)
             {
-                screenData.Loser = screenData.SelectedCharacter;
-                screenData.Winner = screenData.SelectedBotCharacter;
+                screenData.Loser = "player";
+                screenData.Winner = "bot";
                    this.screenManager.ChangeScreen("end");
             }
             else if(PlayerTwo.character.getStocks() < 1)
             {
-                screenData.Loser = screenData.SelectedBotCharacter;
-                screenData.Winner = screenData.SelectedCharacter;
+                screenData.Loser = "bot";
+                screenData.Winner = "player";
                 this.screenManager.ChangeScreen("end");
             }
         }
