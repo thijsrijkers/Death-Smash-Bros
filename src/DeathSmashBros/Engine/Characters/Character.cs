@@ -104,6 +104,7 @@ namespace DeathSmashBros.Engine
                 this.Hitbox.Y += gravity;
             }
 
+            //Player dies if he is out of the map
             if (this.Hitbox.X > 800 || this.Hitbox.X < 0 || this.Hitbox.Y < 0 || this.Hitbox.Y > 480)
             {
                 this.stocksLeft -= 1;

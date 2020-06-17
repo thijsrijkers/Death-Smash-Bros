@@ -28,7 +28,7 @@ namespace DeathSmashBros.Engine
             }
         }
 
-        public virtual void Update(Player otherPlayer, GameTime gameTime, Scene scene)
+        public virtual void UpdateAsync(Player otherPlayer, GameTime gameTime, Scene scene)
         {
             this.character.Update(gameTime, scene);
 

@@ -75,8 +75,8 @@ namespace DeathSmashBros.Engine.Screens
         {
             base.Update(gameTime);
 
-            this.PlayerOne.Update(PlayerTwo, gameTime, currentScene);
-            this.PlayerTwo.Update(PlayerOne, gameTime, currentScene);
+            this.PlayerOne.UpdateAsync(PlayerTwo, gameTime, currentScene);
+            this.PlayerTwo.UpdateAsync(PlayerOne, gameTime, currentScene);
             this.gameTimer.Update(gameTime);
 
             // End the fight when the time is up

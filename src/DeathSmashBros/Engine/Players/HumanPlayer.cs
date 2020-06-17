@@ -20,10 +20,10 @@ namespace DeathSmashBros.Engine.Players
         const double TIMER = 0.8;
         bool attackPossible = true;
 
-        public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
+        public override void UpdateAsync(Player otherPlayer, GameTime gameTime, Scene scene)
         {
             //Check if it is possible to attack
-            base.Update(otherPlayer, gameTime, scene);
+            base.UpdateAsync(otherPlayer, gameTime, scene);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             timer -= elapsed;
             if (timer < 0.0)
@@ -80,8 +80,9 @@ namespace DeathSmashBros.Engine.Players
                     attackPossible = false;
                 }
             }
-            //Blast
-            else if(this.character.Hitbox.X > 800 || this.character.Hitbox.X < 0 || this.character.Hitbox.Y < 0 || this.character.Hitbox.Y > 480)
+
+            //Blast when out of the map
+            if(this.character.Hitbox.X > 800 || this.character.Hitbox.X < 0 || this.character.Hitbox.Y < 0 || this.character.Hitbox.Y > 480)
             {
                 this.character.blast();
                 attackPossible = false;

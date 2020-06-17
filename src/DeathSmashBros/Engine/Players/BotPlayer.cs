@@ -16,9 +16,9 @@ namespace DeathSmashBros.Engine.Players
         }
 
         DateTime previoustick = DateTime.Now;
-        public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
+        public override void UpdateAsync(Player otherPlayer, GameTime gameTime, Scene scene)
         {
-            base.Update(otherPlayer, gameTime, scene);
+            base.UpdateAsync(otherPlayer, gameTime, scene);
 
             //Walk-distance check.
             //Follows character
