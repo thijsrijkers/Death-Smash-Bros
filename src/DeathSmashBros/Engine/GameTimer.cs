@@ -30,7 +30,7 @@ namespace DeathSmashBros.Engine
         public void Draw(SpriteBatch spriteBatch)
         {
             //Writes time in upper left corner 
-            spriteBatch.DrawString(font, timerString, Vector2.Zero, Color.White);
+            spriteBatch.DrawString(font, timerString, new Vector2(15, 0), Color.White);
         }
     }
 }
