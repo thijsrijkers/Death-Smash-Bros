@@ -13,6 +13,7 @@ namespace DeathSmashBros.Engine.Characters
     {
         public Rabfist() : base()
         {
+            //Character info
             this.gravity = 2;
             this.power = 1;
             this.speed = 5;
@@ -21,7 +22,7 @@ namespace DeathSmashBros.Engine.Characters
             this.scale = new Vector2(240, 240);
             this.renderOffset = new Vector2(400, 430);
 
-            // TODO animation times evt
+            //Annimations added
             this.animations.Add("idle", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/idle/idle", 4));
             this.animations.Add("attack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/regularattack/regularattack", 4));
             this.animations.Add("specialattack", new Animation(TimeSpan.FromMilliseconds(1300), "characters/Rabfist/specialattack/specialattack", 8));

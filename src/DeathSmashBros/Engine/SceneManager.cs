@@ -11,16 +11,19 @@ namespace DeathSmashBros.Engine
     {
         private List<Scene> scenes;
 
+        //Make list of scenes
         public SceneManager()
         {
             this.scenes = new List<Scene>();
         }
 
+        //Adds scenes to list
         public void RegisterScene(Scene scene)
         {
             this.scenes.Add(scene);
         }
 
+        //Gets the scene
         public Scene GetScene(string name)
         {
             return this.scenes.First(x => x.Name == name);

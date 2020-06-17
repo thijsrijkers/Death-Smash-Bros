@@ -22,8 +22,10 @@ namespace DeathSmashBros.Engine
         {
             this.character.Update(gameTime, scene);
 
+            //Check if hitbox is hit
             if(this.character.Hitbox.Intersects(otherPlayer.character.AttackHitbox))
             {
+                //Deals damage to opponnent, calculated by character power
                 this.character.damageTaken += (3 + otherPlayer.character.power); 
                 if(this.character.Hitbox.X > otherPlayer.character.Hitbox.X)
                 {
@@ -35,7 +37,7 @@ namespace DeathSmashBros.Engine
                     this.character.Hitbox.X = this.character.Hitbox.X - (int)(2 * this.character.damageTaken);
                     this.character.Hitbox.Y = this.character.Hitbox.Y - (int)(1 * this.character.damageTaken / 2);
                 }
-                otherPlayer.character.AttackHitbox = new Rectangle(0, 0, 0, 0); // attack hit, weg met hitbox
+                otherPlayer.character.AttackHitbox = new Rectangle(0, 0, 0, 0); // attack hit, hitbox gone
             }
         }
 

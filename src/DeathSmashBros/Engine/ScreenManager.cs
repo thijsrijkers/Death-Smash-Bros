@@ -13,16 +13,19 @@ namespace DeathSmashBros.Engine
         private List<Screen> screens;
         private string current = "";
 
+        //Make list for screen
         public ScreenManager()
         {
             this.screens = new List<Screen>();
         }
 
+        //Add screens to list
         public void AddScreen(Screen screen)
         {
             this.screens.Add(screen);
         }
 
+        //Change screen
         public void ChangeScreen(string name)
         {
             ScreenData data;
@@ -42,11 +45,13 @@ namespace DeathSmashBros.Engine
             screens.First(x => x.name == current).LoadContent(data);
         }
         
+        //Update scree
         public void UpdateScreen(GameTime gameTime)
         {
             screens.First(x => x.name == current).Update(gameTime);
         }
 
+        //Draw screen
         public void DrawScreen(SpriteBatch spriteBatch)
         {
             screens.First(x => x.name == current).Draw(spriteBatch);

@@ -33,16 +33,18 @@ namespace DeathSmashBros.Engine.Screens
             this.playerDamage = new PlayerDamage();
         }
 
+        //Load content on screen
         public override void LoadContent(ScreenData data)
         {
             base.LoadContent(data);
 
-            // TODO characters meenemen van ScreenData
+            //Players spawn in air
             PlayerOne = new HumanPlayer(GetNewCharacter(data.SelectedCharacter));
             PlayerOne.character.setPosition(new Vector2(200, 100));
             PlayerTwo = new BotPlayer(GetNewCharacter(data.SelectedBotCharacter));
             PlayerTwo.character.setPosition(new Vector2(500, 100));
 
+            //Gets scene
             this.currentScene = sceneManager.GetScene(screenData.SelectedStage);
 
             int bgHeight = MainGame.RENDER_HEIGHT;
@@ -53,11 +55,13 @@ namespace DeathSmashBros.Engine.Screens
             Image playerOneFrame = new Image(Loader.getTexture($"frames/{data.SelectedCharacter}_player"), new Vector2(100, 325), new Vector2(250, 200));
             Image playerTwoFrame = new Image(Loader.getTexture($"frames/{data.SelectedBotCharacter}_enemy"), new Vector2(450, 325), new Vector2(250, 200));
 
+            //Makes list for Character lives
             stocksPlayerOne = new List<Image>();
             stocksPlayerTwo = new List<Image>();
 
             getStocks();
 
+            //Creates timer
             this.gameTimer = new GameTimer();
 
             drawables.Add(background);
@@ -67,7 +71,6 @@ namespace DeathSmashBros.Engine.Screens
             drawables.Add(playerTwoFrame);
         }
 
-        // PlayerTwo tijdelijk uitgecomment om eerst te focusen op de human player
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -75,11 +78,11 @@ namespace DeathSmashBros.Engine.Screens
             this.PlayerOne.Update(PlayerTwo, gameTime, currentScene);
             this.PlayerTwo.Update(PlayerOne, gameTime, currentScene);
             this.gameTimer.Update(gameTime);
-            //this.playerDamage.Update(playerDamage);
 
             // End the fight when the time is up
             if(gameTimer.timeSpan < TimeSpan.Zero)
-            {
+            {   
+                //Check wich character has most damage
                 if(this.PlayerTwo.character.stocksLeft > this.PlayerOne.character.stocksLeft)
                 {
                     screenData.Loser = "player";
@@ -103,9 +106,11 @@ namespace DeathSmashBros.Engine.Screens
                     this.screenManager.ChangeScreen("end");
             }
 
+            //Updating character lives
             playerDamage.Update(PlayerOne, PlayerTwo);
             updateStocks();
 
+            //Check if character is out of lives
             if(PlayerOne.character.getStocks() < 1)
             {
                 screenData.Loser = "player";
@@ -129,6 +134,7 @@ namespace DeathSmashBros.Engine.Screens
             playerDamage.Draw(spritebatch);
         }
 
+        //Creates character
         public Character GetNewCharacter(string name)
         {
             switch(name.ToLower())
@@ -143,6 +149,7 @@ namespace DeathSmashBros.Engine.Screens
             }
         }
 
+        //Get the character lives
         public void getStocks()
         { 
             stocksPlayerOne.Clear();
@@ -165,6 +172,8 @@ namespace DeathSmashBros.Engine.Screens
                 x += 20;
             }
         }
+
+        //Draw the character lives
         public void drawStocks()
 		{
             foreach (Image stock in stocksPlayerOne)
@@ -177,6 +186,7 @@ namespace DeathSmashBros.Engine.Screens
             }
         }
 
+        //Updating character lives
         public void updateStocks()
         {
             drawables.RemoveAll(x => stocksPlayerOne.Contains(x));

@@ -15,12 +15,14 @@ namespace DeathSmashBros.Engine.Players
         {
         }
 
+        //timer for cooldown attack
         double timer = 0.8;         
         const double TIMER = 0.8;
         bool attackPossible = true;
 
         public override void Update(Player otherPlayer, GameTime gameTime, Scene scene)
         {
+            //Check if it is possible to attack
             base.Update(otherPlayer, gameTime, scene);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             timer -= elapsed;
@@ -32,6 +34,7 @@ namespace DeathSmashBros.Engine.Players
             }
             var keyboardState = Keyboard.GetState();
 
+            //JumpAttack
             if(keyboardState.IsKeyDown(Keys.W))
             {
                 if (attackPossible == true)
@@ -40,14 +43,17 @@ namespace DeathSmashBros.Engine.Players
                     attackPossible = false;
                 }
             }
+            //WalkLeft
             else if (keyboardState.IsKeyDown(Keys.A))
             {
                 this.character.walkLeft();
             }
+            //WalkRight
             else if (keyboardState.IsKeyDown(Keys.D))
             {
                 this.character.walkRight();
             }
+            //RegularAttack
             else if (keyboardState.IsKeyDown(Keys.Q))
             {
                 if (attackPossible == true)
@@ -56,6 +62,7 @@ namespace DeathSmashBros.Engine.Players
                     attackPossible = false;
                 }
             }
+            //Jump
             else if (keyboardState.IsKeyDown(Keys.Space))
             {
                 if (attackPossible == true)
@@ -64,6 +71,7 @@ namespace DeathSmashBros.Engine.Players
                     attackPossible = false;
                 }
             }
+            //SpecialAttack
             else if (keyboardState.IsKeyDown(Keys.E))
             {
                 if (attackPossible == true)

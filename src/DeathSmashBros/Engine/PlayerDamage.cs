@@ -23,20 +23,14 @@ namespace DeathSmashBros.Engine
 
         public void Update(Player playerone, Player playertwo)
         {
+            //Adds damage to players
             damagePlayerOne = (int)playerone.character.damageTaken;
             damagePlayerTwo = (int)playertwo.character.damageTaken;
-            //    if (//if player one gets damage)
-            //    {
-            //        damagePlayerOne += 20;
-            //    }
-            //    else if (//if player two gets damage)
-            //    {
-            //        damagePlayerTwo += 20;
-            //    }
         }
 
         public void Draw(SpriteBatch spriteBatch)
-        {
+        {  
+            //Draws the damage on screen
             string tempStr1 = damagePlayerOne + "%";
             spriteBatch.DrawString(font, tempStr1, new Vector2(250, 410), Color.White);
 

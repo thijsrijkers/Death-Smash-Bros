@@ -17,6 +17,7 @@ namespace DeathSmashBros.Engine
         public GameTimer()
         {
             font = Loader.getFont("debugtext");
+            //Set timer on 8 minutes
             timeSpan = TimeSpan.FromMinutes(8);           
         }
 
@@ -28,6 +29,7 @@ namespace DeathSmashBros.Engine
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            //Writes time in upper left corner 
             spriteBatch.DrawString(font, timerString, Vector2.Zero, Color.White);
         }
     }

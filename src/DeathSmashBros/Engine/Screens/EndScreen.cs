@@ -16,10 +16,9 @@ namespace DeathSmashBros.Engine.Screens
             name = "end";
         }
 
+        //Load content on screen
         public override void LoadContent(ScreenData data)
         {
-            //TODO: winnaar en verliezer laten zien op basis van een echte uitslag en dus niet hardcoded sprites
-            // Hoi, gebruik de ScreenData voor meenemen van data van/naar andere screens
             base.LoadContent(data);
 
             int bgHeight = MainGame.RENDER_HEIGHT;
@@ -29,6 +28,7 @@ namespace DeathSmashBros.Engine.Screens
             string loserName;
             string loser;
 
+            //Check who wins game
             if (screenData.Winner == "bot")
             {
                 winner = "_enemy";
@@ -43,13 +43,16 @@ namespace DeathSmashBros.Engine.Screens
                 loserName = screenData.SelectedBotCharacter;
                 winnerName = screenData.SelectedCharacter;
             }
+            //Back to homescreen button
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(70, 70));
             back.click += Back_click;
 
             Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
+            //Big image on the left for the winner
             Image winnerSprite = new Image(Loader.getTexture("Characters/"+ winnerName + "/"+ winnerName), new Vector2(0, 0), new Vector2(400, bgHeight));
 
+            //small images of the players on the right
             Image winnerFrame = new Image(Loader.getTexture("frames/" + winnerName + winner), new Vector2(350, 25), new Vector2(450, 300));
             Image loserFrame = new Image(Loader.getTexture("frames/" + loserName + loser), new Vector2(350, 150), new Vector2(450, 300));
 
@@ -60,6 +63,7 @@ namespace DeathSmashBros.Engine.Screens
             drawables.Add(back);
         }
 
+        //Go back got homescreen
         private void Back_click(Button button)
         {
             screenManager.ChangeScreen("home");

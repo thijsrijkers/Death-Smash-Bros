@@ -20,7 +20,8 @@ namespace DeathSmashBros.Engine.Players
         {
             base.Update(otherPlayer, gameTime, scene);
 
-            //Walk-distance check. Rabfist is momenteel de bot/AI
+            //Walk-distance check.
+            //Follows character
             if (this.character.getPosition.X < otherPlayer.character.getPosition.X)
             {
                 double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
@@ -37,6 +38,7 @@ namespace DeathSmashBros.Engine.Players
                     this.character.walkLeft();
                 }
             }
+            //Let bot jump if character is higher than him
             else if (this.character.getPosition.Y > otherPlayer.character.getPosition.Y)
             {
                 this.character.jump();
@@ -48,12 +50,14 @@ namespace DeathSmashBros.Engine.Players
 
             if (DateTime.Now.Subtract(previoustick).TotalMilliseconds > 1000)
             {
+                //Random number for choosing attack
                 Random rnd = new Random();
                 int num = rnd.Next(3);
 
                 //Attack check and distance check.
                 if (this.character.getPosition.X < otherPlayer.character.getPosition.X)
                 {
+                    //if bot is close to player, bot attacks
                     double DistanceCheck = this.character.getPosition.X - otherPlayer.character.getPosition.X;
                     if (DistanceCheck <= 100)
                     {

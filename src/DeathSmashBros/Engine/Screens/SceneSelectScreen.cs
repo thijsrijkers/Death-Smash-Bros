@@ -17,6 +17,7 @@ namespace DeathSmashBros.Engine.Screens
             name = "sceneSelect";
         }
 
+        //Load content on screen
         public override void LoadContent(ScreenData data)
         {
             int bgHeight = GraphicsDeviceManager.DefaultBackBufferHeight;
@@ -31,6 +32,7 @@ namespace DeathSmashBros.Engine.Screens
             //int x = minX;
             //int y = minY;
 
+            //Draw buttons on screen
             Button stageItem = new Button("cloud", Loader.getTexture("CloudStageButton"), new Vector2(150, 100), new Vector2(200, 100));
             stageItem.click += Stage_click;
             drawables.Add(stageItem);
@@ -38,29 +40,20 @@ namespace DeathSmashBros.Engine.Screens
             stageItem2.click += Stage_click;
             drawables.Add(stageItem2);
 
-            //while (y <= maxY)
-            //{
-            //    while (x <= maxX)
-            //    {
-                    
-
-            //        x += 315;
-            //    }
-            //    x = minX;
-            //    y += 375;
-            //}
-
             Button back = new Button("back", Loader.getTexture("backbutton"), new Vector2(25, 10), new Vector2(100, 75));
             back.click += Back_click;
             drawables.Add(back);
 
             base.LoadContent(data);
         }
+
+        //Go back to homescreen
         private void Back_click(Button button)
         {
             screenManager.ChangeScreen("home");
         }
 
+        //if you choose a stage, you go to character select
         private void Stage_click(Button button)
         {
             screenData.SelectedStage = button.name;
