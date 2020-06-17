@@ -26,7 +26,7 @@ namespace DeathSmashBros.Engine.Screens
             Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
             //Generate title
-            Image title = new Image(Loader.getTexture("logo"), new Vector2(30, 30), new Vector2(750, 180));
+            Image title = new Image(Loader.getTexture("logo"), new Vector2(200, 100), new Vector2(400, 100));
 
             //Generate buttons on screen
             Button startButton = new Button("start", Loader.getTexture("homescreen-startbutton"), new Vector2(150, 300), new Vector2(200, 100));
