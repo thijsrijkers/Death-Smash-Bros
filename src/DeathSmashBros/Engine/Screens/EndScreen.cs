@@ -61,6 +61,7 @@ namespace DeathSmashBros.Engine.Screens
             Image winnerFrame = new Image(Loader.getTexture("frames/" + winnerName + winner), new Vector2(350, 25), new Vector2(450, 300));
             Image loserFrame = new Image(Loader.getTexture("frames/" + loserName + loser), new Vector2(350, 150), new Vector2(450, 300));
 
+            //Generate title win or lost
             Image endText = new Image(Loader.getTexture(winnerText), new Vector2(350, 30), new Vector2(395, 69));
 
             drawables.Add(background);

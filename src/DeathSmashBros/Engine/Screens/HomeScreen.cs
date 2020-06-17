@@ -25,6 +25,9 @@ namespace DeathSmashBros.Engine.Screens
             int bgWidth = MainGame.RENDER_WIDTH;
             Image background = new Image(Loader.getTexture("homescreen-background"), new Vector2(0, 0), new Vector2(bgWidth, bgHeight));
 
+            //Generate title
+            Image title = new Image(Loader.getTexture("logo"), new Vector2(30, 30), new Vector2(750, 180));
+
             //Generate buttons on screen
             Button startButton = new Button("start", Loader.getTexture("homescreen-startbutton"), new Vector2(150, 300), new Vector2(200, 100));
             Button quitButton = new Button("quit", Loader.getTexture("homescreen-quitbutton"), new Vector2(440, 300), new Vector2(200, 100));
@@ -34,6 +37,7 @@ namespace DeathSmashBros.Engine.Screens
             quitButton.click += QuitButton_click;
 
             drawables.Add(background);
+            drawables.Add(title);
             drawables.Add(startButton);
             drawables.Add(quitButton);
 
